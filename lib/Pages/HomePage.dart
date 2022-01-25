@@ -30,6 +30,7 @@ class _HomePage extends State<HomePage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         centerTitle: true,
         title: Text('Momentum',textAlign: TextAlign.center,),
         toolbarHeight: 80,
@@ -37,6 +38,17 @@ class _HomePage extends State<HomePage>{
             borderRadius: BorderRadius.vertical(
                 bottom: Radius.elliptical(800, 120)
             )
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.vertical(
+                bottom: Radius.elliptical(800, 120)
+            ),
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.deepPurple,Colors.blueAccent]),
+          ),
         ),
       ),
       body: screens[currIndex],
