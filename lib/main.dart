@@ -1,7 +1,9 @@
+import 'package:demo_app/Pages/DetailedHotelInfoPage.dart';
 import 'package:demo_app/Pages/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Pages/LoginPage.dart';
+import 'Widgets/UsersFeedback.dart';
 
 
 void main() {

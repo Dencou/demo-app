@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatelessWidget{
@@ -40,7 +41,7 @@ class RegisterPage extends StatelessWidget{
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              TextButton(onPressed: ()=>{Get.off(LoginPage())}, child: Text('Sign in',style: TextStyle(color: secColors,fontSize: 20),)),
+                              TextButton(onPressed: ()=>{Get.off(LoginPage(),duration: Duration(milliseconds: 100),transition: Transition.fadeIn)}, child: Text('Sign in',style: TextStyle(color: secColors,fontSize: 20),)),
                               TextButton(onPressed: ()=>{}, child: Text('Sign up',style: TextStyle(color: secColors,fontSize: 20),)),
                             ],
                           ),
@@ -122,7 +123,7 @@ class RegisterPage extends StatelessWidget{
                           Center(
                             child: GestureDetector(
                               onTap: ()=>{print('forgot password')},
-                              child: Text('Forgot your password?',style: TextStyle(color: Colors.grey),),
+                              child: Text('Already have an account? Log in!',style: TextStyle(color: Colors.grey),),
                             ),
                           )
 

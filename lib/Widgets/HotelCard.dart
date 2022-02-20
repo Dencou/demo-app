@@ -11,7 +11,7 @@ class HotelCard extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.only(top: 10,left: 20,right: 20),
+    return Padding(padding: EdgeInsets.only(top: 10,left: 20,right: 20,bottom: 16),
     child:Column(
       children: [
         Container(
@@ -24,7 +24,7 @@ class HotelCard extends StatelessWidget{
                 BoxShadow(
                   blurRadius: 5,
                   color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 6,
+                  spreadRadius: 2,
                 )],
             ),
           child:Column(
@@ -37,47 +37,50 @@ class HotelCard extends StatelessWidget{
               ),
               Container(
                 width: double.infinity,
+
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10)),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(hotelCard.name,style: GoogleFonts.exo(textStyle: TextStyle(fontSize: 16)),),
-
-                        Text(hotelCard.location,style: GoogleFonts.exo(textStyle: TextStyle(color: Colors.grey)),),
-                        SizedBox(height: 5,),
-                        Container(
-                          child: RatingBar.builder(
-                            initialRating: 3,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            itemCount: 5,
-                            itemSize: 20,
-                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                            itemBuilder: (context, _) => Icon(
-                              Icons.star,
-                              color: Colors.lightBlue,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 10,right: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(hotelCard.name,style: GoogleFonts.exo(textStyle: TextStyle(fontSize: 16)),),
+                          Text(hotelCard.location,style: GoogleFonts.exo(textStyle: TextStyle(color: Colors.grey)),),
+                          SizedBox(height: 5,),
+                          Container(
+                            child: RatingBar.builder(
+                              initialRating: 3,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemSize: 20,
+                              itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star,
+                                color: Colors.lightBlue,
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
                             ),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
                           ),
-                        ),
-                        SizedBox(height: 5,),
+                          SizedBox(height: 5,),
 
 
-                      ],
-                    ),
-                    Text(hotelCard.price),
-                  ],
-                ),
+                        ],
+                      ),
+                      Text(hotelCard.price),
+                    ],
+                  ),
+                )
 
 
 

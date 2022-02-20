@@ -7,7 +7,7 @@ class Profile extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
-    var name = 'puto martinez';
+    var name = 'Juan Martinez';
 
 
     return Scaffold(
@@ -17,6 +17,7 @@ class Profile extends StatelessWidget{
           Padding(
             padding: EdgeInsets.all(10),
             child: Container(
+              padding: EdgeInsets.all(15),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.grey.shade200

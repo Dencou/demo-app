@@ -25,7 +25,7 @@ class NotificationCard extends StatelessWidget{
             BoxShadow(
               blurRadius: 10,
               color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 6,
+              spreadRadius: 2,
             )],
 
         ),
