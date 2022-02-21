@@ -1,5 +1,6 @@
 import 'package:demo_app/Pages/DetailedHotelInfoPage.dart';
 import 'package:demo_app/Pages/HomePage.dart';
+import 'package:demo_app/Pages/PaymentPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'Pages/LoginPage.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: PaymentPage(),
     );
   }
 }

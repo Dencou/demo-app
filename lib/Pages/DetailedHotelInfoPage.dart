@@ -97,10 +97,10 @@ class DetailedHotelInfoPage extends StatelessWidget{
                     SizedBox(height: 4,),
                     Text('(0984) 314 588',style: GoogleFonts.inter()),
                     SizedBox(height: 20,),
-                    ElevatedButton(onPressed: ()=>{}, child: Text('Order a room', style: TextStyle(color: Colors.black),),
+                    ElevatedButton(onPressed: ()=>{}, child: Text('Order a room', style: TextStyle(color: Colors.white),),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(40),
-                        primary: Colors.deepPurpleAccent.shade200,
+                        primary: Colors.deepPurpleAccent,
                         shadowColor: Colors.deepPurple.shade800,
                         elevation: 10,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

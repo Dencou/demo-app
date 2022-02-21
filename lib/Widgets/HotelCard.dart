@@ -65,7 +65,7 @@ class HotelCard extends StatelessWidget{
                               itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
                               itemBuilder: (context, _) => Icon(
                                 Icons.star,
-                                color: Colors.lightBlue,
+                                color: Colors.yellow.shade800,
                               ),
                               onRatingUpdate: (rating) {
                                 print(rating);
