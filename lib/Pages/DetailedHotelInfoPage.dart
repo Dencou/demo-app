@@ -1,3 +1,7 @@
+import 'package:demo_app/Models/HotelCardModel.dart';
+import 'package:demo_app/StateStores/hotel-details.dart';
+import 'package:demo_app/Widgets/Carousel.dart';
+import 'package:demo_app/Widgets/UserNewFeedback.dart';
 import 'package:demo_app/Widgets/UsersFeedback.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +12,25 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 
 class DetailedHotelInfoPage extends StatelessWidget{
+
+
+
+
+  final data = hotelStores.hotels.map((e) => e.id == hotelStores.currHotel);
+
+
+  List<HotelCardModel> hotel = List<HotelCardModel>.from(hotelStores.hotels.where((element) => element.id == hotelStores.currHotel).map((e) =>
+      HotelCardModel(name: e.name, bannerImage: e.bannerImage, country: e.country, price: e.price, extras: e.extras, city: e.city, id: e.id)
+  ));
+  submit(){
+    print(hotelStores.currHotel);
+    var currhotel = hotelStores.hotels;
+
+    print(hotel[0].name);
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,16 +67,11 @@ class DetailedHotelInfoPage extends StatelessWidget{
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.white,
-                      boxShadow: const [BoxShadow(
-                          blurRadius: 2,
-                          spreadRadius: 2,
-                          offset: Offset(1,2),
-                          color: Colors.black54
-                      )]
+
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.network('https://www.thespruce.com/thmb/Sa2UtD7YEpm40_gdHvYDXcRT1wk=/889x667/smart/filters:no_upscale()/23-Pitt-Road-Springfield-NJ-0088-Web-47236bb26d304e9188c2f8f5668e2990.jpg',fit: BoxFit.fill,),
+                    child: Carousel(content: Image.network(this.hotel[0].bannerImage), itemCount: 3,autoPlay: true,),
                   )
               ),
             ),
@@ -83,21 +101,22 @@ class DetailedHotelInfoPage extends StatelessWidget{
                     SizedBox(height: 10,),
                     Text('Hotel details',style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 20),),
                     SizedBox(height: 4,),
-                    Text('Brazil - Sao Paulo - St 200',style: GoogleFonts.inter(),),
+                    Text(this.hotel[0].country + " - " + this.hotel[0].city,style: GoogleFonts.inter(),),
                     SizedBox(height: 4,),
-                    Text('200.000 USD p/night',style: GoogleFonts.inter()),
+                    Text(this.hotel[0].price,style: GoogleFonts.inter()),
                     SizedBox(height: 4,),
                     Text('Disabled friendly',style: GoogleFonts.inter()),
                     SizedBox(height: 4,),
                     Text("Extras",style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold)),
                     SizedBox(height: 4,),
-                    Text('Wifi, pool, Soccer field, Tennis field, Padel Field, Breakfast included, Vegan Friendly, puto'),
+                    Text(this.hotel[0].extras),
                     SizedBox(height: 4,),
                     Text("Contact",style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold)),
                     SizedBox(height: 4,),
                     Text('(0984) 314 588',style: GoogleFonts.inter()),
                     SizedBox(height: 20,),
-                    ElevatedButton(onPressed: ()=>{}, child: Text('Order a room', style: TextStyle(color: Colors.white),),
+
+                    ElevatedButton(onPressed: ()=>{submit()}, child: Text('Order a room', style: TextStyle(color: Colors.white),),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(40),
                         primary: Colors.deepPurpleAccent,
@@ -109,22 +128,9 @@ class DetailedHotelInfoPage extends StatelessWidget{
 
 
 
-                    CarouselSlider.builder(
-                      itemCount: 3,
-                      itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-                          Container(
-                            width: double.infinity,
+                    Carousel(content: UsersFeedback(), itemCount: 3,autoPlay: false,),
 
-                            child: UsersFeedback(),
-                          ),
-                      options: CarouselOptions(
-                      autoPlay: false,
-                      enlargeCenterPage: true,
-                      viewportFraction: 0.9,
-                      aspectRatio: 2.0,
-                      initialPage: 2,
-                    ),
-                    )
+                    UserNewFeedback(),
 
 
                   ],

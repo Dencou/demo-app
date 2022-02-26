@@ -1,14 +1,13 @@
 class HotelCardModel{
+  int id;
   String bannerImage;
   String name;
-  String location;
   String price;
-  int rating = 0;
   String extras;
-  String? contactNumer;
-  String? socialOne;
+  String city;
+  String country;
 
 
+  HotelCardModel({required this.name, required this.bannerImage,required this.country,required this.price,required this.extras, required this.city, required this.id});
 
-  HotelCardModel({required this.name,required this.bannerImage,required this.location,required this.price,required this.extras, required this.rating, this.socialOne, this.contactNumer});
 }

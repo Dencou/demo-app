@@ -61,7 +61,7 @@ class UsersFeedback extends StatelessWidget{
                 ],
               ),
 
-            ),
+            ) ,
           )
         ],
       )

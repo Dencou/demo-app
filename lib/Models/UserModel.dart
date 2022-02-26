@@ -1,8 +1,11 @@
 class UserModel{
+  String token;
   String name;
-  String feedbackMessage;
+  String email;
+  String password;
   String? country;
-  String image;
+  String? image;
 
-  UserModel(this.name,this.feedbackMessage,this.image);
+  UserModel({required this.name, required this.email, required this.password, this.country, this.image,required this.token});
+
 }

@@ -9,21 +9,6 @@ part of 'user-stores.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$UserStore on UserStoreBase, Store {
-  final _$bannerImageAtom = Atom(name: 'UserStoreBase.bannerImage');
-
-  @override
-  String get bannerImage {
-    _$bannerImageAtom.reportRead();
-    return super.bannerImage;
-  }
-
-  @override
-  set bannerImage(String value) {
-    _$bannerImageAtom.reportWrite(value, super.bannerImage, () {
-      super.bannerImage = value;
-    });
-  }
-
   final _$nameAtom = Atom(name: 'UserStoreBase.name');
 
   @override
@@ -39,63 +24,33 @@ mixin _$UserStore on UserStoreBase, Store {
     });
   }
 
-  final _$locationAtom = Atom(name: 'UserStoreBase.location');
+  final _$tokenAtom = Atom(name: 'UserStoreBase.token');
 
   @override
-  String get location {
-    _$locationAtom.reportRead();
-    return super.location;
+  String get token {
+    _$tokenAtom.reportRead();
+    return super.token;
   }
 
   @override
-  set location(String value) {
-    _$locationAtom.reportWrite(value, super.location, () {
-      super.location = value;
+  set token(String value) {
+    _$tokenAtom.reportWrite(value, super.token, () {
+      super.token = value;
     });
   }
 
-  final _$priceAtom = Atom(name: 'UserStoreBase.price');
+  final _$emailAtom = Atom(name: 'UserStoreBase.email');
 
   @override
-  String get price {
-    _$priceAtom.reportRead();
-    return super.price;
+  String get email {
+    _$emailAtom.reportRead();
+    return super.email;
   }
 
   @override
-  set price(String value) {
-    _$priceAtom.reportWrite(value, super.price, () {
-      super.price = value;
-    });
-  }
-
-  final _$ratingAtom = Atom(name: 'UserStoreBase.rating');
-
-  @override
-  int get rating {
-    _$ratingAtom.reportRead();
-    return super.rating;
-  }
-
-  @override
-  set rating(int value) {
-    _$ratingAtom.reportWrite(value, super.rating, () {
-      super.rating = value;
-    });
-  }
-
-  final _$extrasAtom = Atom(name: 'UserStoreBase.extras');
-
-  @override
-  String get extras {
-    _$extrasAtom.reportRead();
-    return super.extras;
-  }
-
-  @override
-  set extras(String value) {
-    _$extrasAtom.reportWrite(value, super.extras, () {
-      super.extras = value;
+  set email(String value) {
+    _$emailAtom.reportWrite(value, super.email, () {
+      super.email = value;
     });
   }
 
@@ -103,21 +58,22 @@ mixin _$UserStore on UserStoreBase, Store {
       ActionController(name: 'UserStoreBase');
 
   @override
-  void setDetails(
-      {dynamic name,
-      dynamic location,
-      dynamic price,
-      dynamic rating,
-      dynamic extras}) {
+  void setUserData(dynamic name, dynamic token, dynamic email) {
     final _$actionInfo = _$UserStoreBaseActionController.startAction(
-        name: 'UserStoreBase.setDetails');
+        name: 'UserStoreBase.setUserData');
     try {
-      return super.setDetails(
-          name: name,
-          location: location,
-          price: price,
-          rating: rating,
-          extras: extras);
+      return super.setUserData(name, token, email);
+    } finally {
+      _$UserStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setToken(dynamic token) {
+    final _$actionInfo = _$UserStoreBaseActionController.startAction(
+        name: 'UserStoreBase.setToken');
+    try {
+      return super.setToken(token);
     } finally {
       _$UserStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -126,12 +82,9 @@ mixin _$UserStore on UserStoreBase, Store {
   @override
   String toString() {
     return '''
-bannerImage: ${bannerImage},
 name: ${name},
-location: ${location},
-price: ${price},
-rating: ${rating},
-extras: ${extras}
+token: ${token},
+email: ${email}
     ''';
   }
 }

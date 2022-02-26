@@ -8,27 +8,24 @@ abstract class UserStoreBase with Store {
 
 
   @observable
-  String bannerImage = '';
-
-  @observable
   String name = '';
   @observable
-  String location = '';
+  String token = '';
   @observable
-  String price = '';
-  @observable
-  int rating = 0;
-  @observable
-  String extras = '';
+  String email = '';
 
 
   @action
-  void setDetails({name,location,price,rating,extras}){
+  void setUserData(name, token,email){
     this.name = name;
-    this.location = location;
-    this.price = price;
-    this.rating = rating;
-    this.extras = extras;
+    this.token = token;
+    this.email = email;
 
   }
+
+  @action
+  void setToken(token){
+    this.token = token;
+  }
 }
+var userStores = UserStore();
