@@ -1,3 +1,4 @@
+import 'package:demo_app/Models/FeedbackModel.dart';
 import 'package:mobx/mobx.dart';
 
 part 'feedback-stores.g.dart';
@@ -8,6 +9,8 @@ abstract class FeedbackStoresBase with Store {
 
   @observable
   int rating =0;
+  @observable
+  List<FeedbackModel> feedbacks = [];
 
 
 
@@ -17,6 +20,10 @@ abstract class FeedbackStoresBase with Store {
 
     this.rating = rating;
 
+  }
+  @action
+  void setFeedbackList(feedbacks){
+    this.feedbacks = feedbacks;
   }
 }
 var feedbackStore = FeedbackStores();

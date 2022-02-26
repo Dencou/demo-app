@@ -2,6 +2,7 @@ import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/Services/HotelService.dart';
 import 'package:demo_app/StateStores/feedback-stores.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
+import 'package:demo_app/StateStores/user-stores.dart';
 import 'package:demo_app/Widgets/RatinBarw.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,20 +11,20 @@ class FeedbackPage extends StatefulWidget{
   @override
   _FeedbackPage createState() => _FeedbackPage();
 
-
-
-
-
-
-
 }
 class _FeedbackPage extends State<FeedbackPage>{
   TextEditingController message = TextEditingController();
+
   void sumbit(){
-    print('hola');
-    print(feedbackStore.rating);
+
     var rating = feedbackStore.rating.toInt();
-    feedbackService.createFeedback(rating:rating.toInt(),message: message.text,hotelid: hotelStores.currHotel, userid: 1);
+    //create feedback
+    feedbackService.createFeedback(rating:rating.toInt(),message: message.text,hotelid: hotelStores.currHotel, userid: userStores.id);
+    setState(() {
+
+    });
+
+
   }
   @override
   Widget build(BuildContext context) {

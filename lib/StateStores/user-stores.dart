@@ -13,12 +13,17 @@ abstract class UserStoreBase with Store {
   String token = '';
   @observable
   String email = '';
+  @observable
+  int id = 0;
+  @observable
+  String image='something';
 
 
   @action
-  void setUserData(name,email){
+  void setUserData(name,email,id){
     this.name = name;
     this.email = email;
+    this.id = id;
 
   }
 

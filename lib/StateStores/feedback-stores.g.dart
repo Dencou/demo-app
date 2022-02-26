@@ -24,6 +24,21 @@ mixin _$FeedbackStores on FeedbackStoresBase, Store {
     });
   }
 
+  final _$feedbacksAtom = Atom(name: 'FeedbackStoresBase.feedbacks');
+
+  @override
+  List<FeedbackModel> get feedbacks {
+    _$feedbacksAtom.reportRead();
+    return super.feedbacks;
+  }
+
+  @override
+  set feedbacks(List<FeedbackModel> value) {
+    _$feedbacksAtom.reportWrite(value, super.feedbacks, () {
+      super.feedbacks = value;
+    });
+  }
+
   final _$FeedbackStoresBaseActionController =
       ActionController(name: 'FeedbackStoresBase');
 
@@ -39,9 +54,21 @@ mixin _$FeedbackStores on FeedbackStoresBase, Store {
   }
 
   @override
+  void setFeedbackList(dynamic feedbacks) {
+    final _$actionInfo = _$FeedbackStoresBaseActionController.startAction(
+        name: 'FeedbackStoresBase.setFeedbackList');
+    try {
+      return super.setFeedbackList(feedbacks);
+    } finally {
+      _$FeedbackStoresBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-rating: ${rating}
+rating: ${rating},
+feedbacks: ${feedbacks}
     ''';
   }
 }

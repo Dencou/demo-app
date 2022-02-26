@@ -2,6 +2,7 @@ import 'package:demo_app/Models/NotificationCardModel.dart';
 import 'package:demo_app/Pages/BottomNavigationBarItems/Home.dart';
 import 'package:demo_app/Pages/BottomNavigationBarItems/Profile.dart';
 import 'package:demo_app/Pages/RegisterPage.dart';
+import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/Widgets/HotelCard.dart';
 import 'package:demo_app/Widgets/NotificationCard.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,6 +29,9 @@ class _HomePage extends State<HomePage>{
 
   @override
   Widget build(BuildContext context) {
+
+    feedbackService.getFeedbacks();
+
     return Scaffold(
 
       appBar: AppBar(

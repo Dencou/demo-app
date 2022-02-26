@@ -1,4 +1,7 @@
+import 'package:demo_app/Models/FeedbackModel.dart';
 import 'package:demo_app/Models/HotelCardModel.dart';
+import 'package:demo_app/Services/FeedbackService.dart';
+import 'package:demo_app/StateStores/feedback-stores.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
 import 'package:demo_app/Widgets/Carousel.dart';
 import 'package:demo_app/Widgets/UserNewFeedback.dart';
@@ -22,9 +25,15 @@ class DetailedHotelInfoPage extends StatelessWidget{
   List<HotelCardModel> hotel = List<HotelCardModel>.from(hotelStores.hotels.where((element) => element.id == hotelStores.currHotel).map((e) =>
       HotelCardModel(name: e.name, bannerImage: e.bannerImage, country: e.country, price: e.price, extras: e.extras, city: e.city, id: e.id)
   ));
+  List<FeedbackModel> feedback = List<FeedbackModel>.from(feedbackStore.feedbacks.where((element) => element.id.toString() == hotelStores.currHotel.toString()).map((e) =>
+      FeedbackModel(e.userPhoto, e.userName, e.message, e.rating, e.id)
+  ));
+
+
   submit(){
     print(hotelStores.currHotel);
     var currhotel = hotelStores.hotels;
+
 
     print(hotel[0].name);
 
@@ -116,7 +125,7 @@ class DetailedHotelInfoPage extends StatelessWidget{
                     Text('(0984) 314 588',style: GoogleFonts.inter()),
                     SizedBox(height: 20,),
 
-                    ElevatedButton(onPressed: ()=>{submit()}, child: Text('Order a room', style: TextStyle(color: Colors.white),),
+                    ElevatedButton(onPressed: ()=>{feedbackService.getFeedbacks()}, child: Text('Order a room', style: TextStyle(color: Colors.white),),
                       style: ElevatedButton.styleFrom(
                         minimumSize: Size.fromHeight(40),
                         primary: Colors.deepPurpleAccent,
@@ -128,20 +137,31 @@ class DetailedHotelInfoPage extends StatelessWidget{
 
 
 
-                    Carousel(content: UsersFeedback(), itemCount: 3,autoPlay: false,),
+                    //Carousel(content: UsersFeedback(), itemCount: 3,autoPlay: false,),
 
+
+
+                    SizedBox(height: 20,),
+                    Text("See what guests think about:",style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 14),),
+                    ...feedbackStore.feedbacks.map((e) => UsersFeedback(e)),
                     UserNewFeedback(),
-
 
                   ],
                 ),
               ),
-            )
+            ),
+            //...feedbackStore.feedbacks.map((e) => UsersFeedback(e)),
 
           ],
+
         ),
+
+
       )
+
+
     );
+
   }
 
 }

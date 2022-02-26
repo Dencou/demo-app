@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:demo_app/Models/FeedbackModel.dart';
+import 'package:demo_app/Widgets/RatinBarw.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -10,19 +12,19 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class UsersFeedback extends StatelessWidget{
 
+  FeedbackModel feedback;
+  UsersFeedback(this.feedback);
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: ()=>{},
-      child: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 16,),
-          Text("See what guests think about:",style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 14),),
+
           SizedBox(height: 6,),
 
-          Expanded(
-            child: Container(
+          Container(
               width: double.infinity,
               height: 150,
               decoration: BoxDecoration(
@@ -50,22 +52,23 @@ class UsersFeedback extends StatelessWidget{
                             child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHlIC6mj9KXGnVloMBpbZ5MULyumav2TarjA&usqp=CAU',height: 40, width: 40,fit: BoxFit.fill,),
                           ),
                         ),
-                        Text('Javier Games',style: GoogleFonts.inter(fontWeight: FontWeight.bold),),
+                        Text(feedback.userName,style: GoogleFonts.inter(fontWeight: FontWeight.bold),),
                       ]),
 
                   Padding(
                     padding: EdgeInsets.only(left: 10),
-                    child: Text('La verdad que el otel es una puta mierda, un kilombo es, sinceramente nunca mas voy a volver espero que se muera el creador y todos sus muertos',style: GoogleFonts.inter()),
-                  )
+                    child: Text(feedback.message,style: GoogleFonts.inter()),
+                  ),
+
 
                 ],
               ),
 
             ) ,
-          )
+
         ],
-      )
-    );
+      );
+
 
   }
 

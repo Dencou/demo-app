@@ -24,7 +24,7 @@ class RatingBarw extends StatelessWidget{
         initialRating: initialRating,
         minRating: 1,
         direction: Axis.horizontal,
-        allowHalfRating: true,
+        allowHalfRating: false,
         itemCount: itemCount,
         itemSize: itemSize,
         itemPadding: EdgeInsets.symmetric(horizontal: 4.0),

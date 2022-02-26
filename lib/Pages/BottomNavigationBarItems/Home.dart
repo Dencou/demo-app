@@ -26,12 +26,7 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
-    void tap(){
-      hotelStores.setCurrHotel(2);
-      Get.to(DetailedHotelInfoPage());
 
-
-    }
 
 
     return Scaffold(

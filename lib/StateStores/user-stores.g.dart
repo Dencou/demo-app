@@ -54,15 +54,30 @@ mixin _$UserStore on UserStoreBase, Store {
     });
   }
 
+  final _$idAtom = Atom(name: 'UserStoreBase.id');
+
+  @override
+  int get id {
+    _$idAtom.reportRead();
+    return super.id;
+  }
+
+  @override
+  set id(int value) {
+    _$idAtom.reportWrite(value, super.id, () {
+      super.id = value;
+    });
+  }
+
   final _$UserStoreBaseActionController =
       ActionController(name: 'UserStoreBase');
 
   @override
-  void setUserData(dynamic name, dynamic email) {
+  void setUserData(dynamic name, dynamic email, dynamic id) {
     final _$actionInfo = _$UserStoreBaseActionController.startAction(
         name: 'UserStoreBase.setUserData');
     try {
-      return super.setUserData(name, email);
+      return super.setUserData(name, email, id);
     } finally {
       _$UserStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -84,7 +99,8 @@ mixin _$UserStore on UserStoreBase, Store {
     return '''
 name: ${name},
 token: ${token},
-email: ${email}
+email: ${email},
+id: ${id}
     ''';
   }
 }

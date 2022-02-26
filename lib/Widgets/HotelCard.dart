@@ -1,6 +1,8 @@
 import 'package:demo_app/Models/HotelCardModel.dart';
 import 'package:demo_app/Pages/DetailedHotelInfoPage.dart';
+import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/Services/HotelService.dart';
+import 'package:demo_app/StateStores/feedback-stores.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
 import 'package:demo_app/Widgets/RatinBarw.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,11 +17,12 @@ class HotelCard extends StatelessWidget{
   HotelCardModel hotelCard;
   HotelCard(this.hotelCard);
 
-  void tap(){
+  Future<void> tap() async {
     //hotelStores.setCurrHotel(hotelCard.id);
     hotelStores.setCurrHotel(hotelCard.id);
-    print("hotel card ======>" + (hotelCard.id).toString());
-    print("CURRENT ID ======>" + (hotelStores.currHotel).toString());
+    print('getting feedbacks');
+    await feedbackService.getFeedbacks();
+
     Get.to(DetailedHotelInfoPage());
   }
 

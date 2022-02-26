@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:http/http.dart' as http;
 import 'package:demo_app/Consts/SERVER_URL.dart';
 import 'package:demo_app/Pages/HomePage.dart';
@@ -37,10 +38,15 @@ class AuthService{
       //get the hotels request for HomePage()
       await hotelService.getHotels(false,false);
 
-      //set jwt token
       var token = responsejson['access_token'];
       print(token);
       await getUserData(token);
+      //await feedbackService.getFeedbacks();
+
+      //set jwt token
+
+
+
 
 
       //navigato to HotelPage()
@@ -80,14 +86,16 @@ class AuthService{
       var responsejson = json.decode(response.body);
 
       //set access token
+      print(responsejson);
 
 
 
-      userStores.setToken(responsejson['access_token']);
+
 
       //check if the request was successful
       if(response.statusCode == 200){
         var token = responsejson['access_token'];
+        userStores.setToken(token);
         await getUserData(token);
         Get.off(HomePage());
       }else{
@@ -98,12 +106,16 @@ class AuthService{
 
   }
   Future getUserData(access_token)async{
+
+    //request
     var url = Uri.parse('$SERVER_URLL/users/me');
     var response = await http.get(url,headers: {HttpHeaders.authorizationHeader:'Bearer $access_token'});
     var responsejson = json.decode(response.body);
 
-    print(responsejson);
-    userStores.setUserData(responsejson['name'],responsejson['email']);
+    //set user data
+
+    userStores.setUserData(responsejson['name'],responsejson['email'], responsejson['id']);
+
 
     
   }
