@@ -16,9 +16,8 @@ abstract class UserStoreBase with Store {
 
 
   @action
-  void setUserData(name, token,email){
+  void setUserData(name,email){
     this.name = name;
-    this.token = token;
     this.email = email;
 
   }

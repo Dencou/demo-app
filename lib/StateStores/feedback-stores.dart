@@ -6,10 +6,17 @@ class FeedbackStores = FeedbackStoresBase with _$FeedbackStores;
 
 abstract class FeedbackStoresBase with Store {
 
+  @observable
+  int rating =0;
+
 
 
 
   @action
-  void setFeedback(){
+  void setFeedback(rating){
+
+    this.rating = rating;
+
   }
 }
+var feedbackStore = FeedbackStores();

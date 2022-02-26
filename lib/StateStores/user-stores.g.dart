@@ -58,11 +58,11 @@ mixin _$UserStore on UserStoreBase, Store {
       ActionController(name: 'UserStoreBase');
 
   @override
-  void setUserData(dynamic name, dynamic token, dynamic email) {
+  void setUserData(dynamic name, dynamic email) {
     final _$actionInfo = _$UserStoreBaseActionController.startAction(
         name: 'UserStoreBase.setUserData');
     try {
-      return super.setUserData(name, token, email);
+      return super.setUserData(name, email);
     } finally {
       _$UserStoreBaseActionController.endAction(_$actionInfo);
     }

@@ -1,4 +1,5 @@
 import 'package:demo_app/Models/HotelCardModel.dart';
+import 'package:demo_app/StateStores/user-stores.dart';
 import 'package:demo_app/Widgets/HotelCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -58,25 +59,19 @@ class _Profile extends State<Profile>{
                                 width: double.infinity,
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Name'), Text('$name')],),),
+                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Name'), Text(userStores.name)],),),
                               SizedBox(height: 20,),
                               Container(
                                 width: double.infinity,
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Email'), Text('$name')],),),
+                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Email'), Text(userStores.email)],),),
                               SizedBox(height: 20,),
                               Container(
                                 width: double.infinity,
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Password'), Text('$name')],),),
-                              SizedBox(height: 20,),
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Travels'), Text('$name')],),),
+                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Travels'), Text('You dont have any travels at this time')],),),
 
                             ],
                           ),

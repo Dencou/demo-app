@@ -2,6 +2,7 @@ import 'package:demo_app/Models/HotelCardModel.dart';
 import 'package:demo_app/Pages/DetailedHotelInfoPage.dart';
 import 'package:demo_app/Services/HotelService.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
+import 'package:demo_app/Widgets/RatinBarw.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -69,24 +70,7 @@ class HotelCard extends StatelessWidget{
                                 Text(hotelCard.name,style: GoogleFonts.exo(textStyle: TextStyle(fontSize: 16)),),
                                 Text(hotelCard.country + " - " + hotelCard.city,style: GoogleFonts.exo(textStyle: TextStyle(color: Colors.grey)),),
                                 SizedBox(height: 5,),
-                                Container(
-                                  child: RatingBar.builder(
-                                    initialRating: 3,
-                                    minRating: 1,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    itemCount: 5,
-                                    itemSize: 20,
-                                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                                    itemBuilder: (context, _) => Icon(
-                                      Icons.star,
-                                      color: Colors.yellow.shade800,
-                                    ),
-                                    onRatingUpdate: (rating) {
-                                      print(rating);
-                                    },
-                                  ),
-                                ),
+                                RatingBarw(itemCount: 5,itemSize: 20,initialRating: 3,),
                                 SizedBox(height: 5,),
 
 

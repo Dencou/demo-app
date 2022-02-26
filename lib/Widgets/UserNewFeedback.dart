@@ -1,5 +1,8 @@
+import 'package:demo_app/Pages/FeedbackPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class UserNewFeedback extends StatelessWidget{
   @override
@@ -10,7 +13,7 @@ class UserNewFeedback extends StatelessWidget{
         child: Column(
           children: [
             Text('Want to write a feedback?'),
-            ElevatedButton(onPressed: ()=>{}, child: Text('Give a feedback',style: TextStyle(color: Colors.black),),
+            ElevatedButton(onPressed: ()=>{Get.to(FeedbackPage())}, child: Text('Give a feedback',style: TextStyle(color: Colors.black),),
               style: ElevatedButton.styleFrom(
                 minimumSize: Size.fromHeight(30),
                 primary: Colors.white,
