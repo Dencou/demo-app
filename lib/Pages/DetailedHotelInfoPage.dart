@@ -3,6 +3,7 @@ import 'package:demo_app/Models/HotelCardModel.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/StateStores/feedback-stores.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
+import 'package:demo_app/Widgets/AppBarW.dart';
 import 'package:demo_app/Widgets/Carousel.dart';
 import 'package:demo_app/Widgets/UserNewFeedback.dart';
 import 'package:demo_app/Widgets/UsersFeedback.dart';
@@ -43,27 +44,7 @@ class DetailedHotelInfoPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Momentum',textAlign: TextAlign.center,),
-        toolbarHeight: 80,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-                bottom: Radius.elliptical(800, 120)
-            )
-        ),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.vertical(
-                bottom: Radius.elliptical(800, 120)
-            ),
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.deepPurple,Colors.blueAccent]),
-          ),
-        ),
-      ),
+      appBar:AppBarW(),
       body: SingleChildScrollView(
         child: Column(
           children: [

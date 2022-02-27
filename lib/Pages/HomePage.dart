@@ -3,6 +3,7 @@ import 'package:demo_app/Pages/BottomNavigationBarItems/Home.dart';
 import 'package:demo_app/Pages/BottomNavigationBarItems/Profile.dart';
 import 'package:demo_app/Pages/RegisterPage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
+import 'package:demo_app/Widgets/AppBarW.dart';
 import 'package:demo_app/Widgets/HotelCard.dart';
 import 'package:demo_app/Widgets/NotificationCard.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,27 +35,7 @@ class _HomePage extends State<HomePage>{
 
     return Scaffold(
 
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Momentum',textAlign: TextAlign.center,),
-        toolbarHeight: 80,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-                bottom: Radius.elliptical(800, 120)
-            )
-        ),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.vertical(
-                bottom: Radius.elliptical(800, 120)
-            ),
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.deepPurple,Colors.blueAccent]),
-          ),
-        ),
-      ),
+      appBar:AppBarW(),
       body: screens[currIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currIndex,
