@@ -32,11 +32,11 @@ class DetailedHotelInfoPage extends StatelessWidget{
 
 
   submit(){
-    print(hotelStores.currHotel);
+
     var currhotel = hotelStores.hotels;
 
 
-    print(hotel[0].name);
+
 
   }
 
@@ -85,7 +85,7 @@ class DetailedHotelInfoPage extends StatelessWidget{
                         color: Colors.yellow.shade800,
                       ),
                       onRatingUpdate: (rating) {
-                        print(rating);
+
                       },
                     ),
                     SizedBox(height: 10,),

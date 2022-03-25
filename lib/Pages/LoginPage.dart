@@ -17,7 +17,6 @@ class LoginPage extends StatelessWidget{
 
 
   submit(){
-    print('clicked');
     authService.login(name:name.text,password:password.text,email:email.text);
   }
 

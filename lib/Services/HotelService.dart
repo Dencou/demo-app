@@ -20,7 +20,7 @@ class HotelService{
     var responsejson = json.decode(response.body);
     //map the response to the HotelCardModel to save in the store
     List<HotelCardModel> hotel = List<HotelCardModel>.from(responsejson.map((hotel) =>
-        HotelCardModel(id:hotel['id'],name: hotel['name'], extras: hotel['extras'], country: hotel['country'], city: hotel['city'], price: hotel['pricePerNight'],bannerImage: 'https://via.placeholder.com/150')
+        HotelCardModel(id:hotel['id'],name: hotel['name'], extras: hotel['extras'], country: hotel['country'], city: hotel['city'], price: hotel['pricePerNight'],bannerImage: hotel['roomPhoto'])
      ));
     //set the hotels
     hotelStores.setDetails(hotel);

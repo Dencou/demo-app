@@ -38,7 +38,7 @@ class _Profile extends State<Profile>{
                       Container(
                         width: 100,
                         height: 100,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Colors.blue,
                             borderRadius: BorderRadius.all(Radius.circular(100)),
                             image: DecorationImage(

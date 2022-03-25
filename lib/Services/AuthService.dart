@@ -39,7 +39,6 @@ class AuthService{
       await hotelService.getHotels(false,false);
 
       var token = responsejson['access_token'];
-      print(token);
       await getUserData(token);
       //await feedbackService.getFeedbacks();
 
@@ -84,12 +83,6 @@ class AuthService{
 
       //decode the response
       var responsejson = json.decode(response.body);
-
-      //set access token
-      print(responsejson);
-
-
-
 
 
       //check if the request was successful
