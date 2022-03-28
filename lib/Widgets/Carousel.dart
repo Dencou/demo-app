@@ -23,7 +23,6 @@ class Carousel extends StatelessWidget{
       itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
           Container(
             width: double.infinity,
-
             child: content,
           ),
       options: CarouselOptions(

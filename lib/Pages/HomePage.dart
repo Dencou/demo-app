@@ -20,8 +20,10 @@ class HomePage extends StatefulWidget{
 }
 class _HomePage extends State<HomePage>{
 
+  //default page for the BottomNavigationBar
   var currIndex = 0;
 
+  //set the pages for the bottom navigation bar
   var screens = [
     Home(),
     Notifications(),

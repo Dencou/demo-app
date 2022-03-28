@@ -15,10 +15,7 @@ class Home extends StatefulWidget{
 
   @override
   initState() {
-    print('getting hotels........................................');
     hotelService.getHotels(false,false);
-
-
   }
 
 

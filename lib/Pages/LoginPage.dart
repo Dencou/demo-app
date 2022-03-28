@@ -16,10 +16,11 @@ class LoginPage extends StatelessWidget{
    TextEditingController password = TextEditingController();
 
 
+   //login request
   submit(){
     authService.login(name:name.text,password:password.text,email:email.text);
   }
-
+  //Text color
   var secColors = Colors.white;
 
 
@@ -33,7 +34,7 @@ class LoginPage extends StatelessWidget{
         tag: "tag",
         child: Container(
           height: double.infinity,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: NetworkImage('https://media.istockphoto.com/vectors/black-square-pattern-luxury-sofa-background-and-texture-vector-id902378754?k=20&m=902378754&s=170667a&w=0&h=tez0M1n5c6oJ88pqllAr3SMxEW8TfFxHaNufn5lTFc0='),
                   fit: BoxFit.cover

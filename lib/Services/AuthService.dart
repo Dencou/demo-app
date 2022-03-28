@@ -18,7 +18,7 @@ class AuthService{
     //set the url
     var url = Uri.parse('$SERVER_URLL/auth/signin');
 
-    //create the body
+    //create the body for the request
     var data ={
       'email':email,
       'password':password
@@ -30,35 +30,20 @@ class AuthService{
     //decode the request
     var responsejson = json.decode(response.body);
 
-
-
-
     //check if the request was successful
     if(response.statusCode == 201){
       //get the hotels request for HomePage()
       await hotelService.getHotels(false,false);
 
+      //store the JWT token
       var token = responsejson['access_token'];
       await getUserData(token);
-      //await feedbackService.getFeedbacks();
 
-      //set jwt token
-
-
-
-
-
-      //navigato to HotelPage()
+      //navigateto HotelPage()
       Get.off(HomePage());
-
-
-
-      //see the user data
-
-      
     }else{
-      //return snackbar
-      return;
+      //TODO: make the snackbar
+      return Get.snackbar('pene', 'pilin');
     }
   }
 
@@ -71,7 +56,7 @@ class AuthService{
       //return snackbar
       return "error";
     }else{
-      //post request to create user
+      //request body
       var data = {
         "name":name,
         "email":email,
@@ -79,6 +64,7 @@ class AuthService{
         "country":cpassword,
         "image":image,
       };
+      //post request to create user
       var response = await http.post(url, body: data);
 
       //decode the response
@@ -87,17 +73,19 @@ class AuthService{
 
       //check if the request was successful
       if(response.statusCode == 200){
+        //store the JWT token
         var token = responsejson['access_token'];
         userStores.setToken(token);
         await getUserData(token);
         Get.off(HomePage());
       }else{
-        //return snackbar
+        //TODO: make the snackbar
         return;
       }
     }
 
   }
+  //returns the about me user data
   Future getUserData(access_token)async{
 
     //request
@@ -105,14 +93,9 @@ class AuthService{
     var response = await http.get(url,headers: {HttpHeaders.authorizationHeader:'Bearer $access_token'});
     var responsejson = json.decode(response.body);
 
-    //set user data
-
+    //store user data
     userStores.setUserData(responsejson['name'],responsejson['email'], responsejson['id']);
-
-
     
   }
-
-
 }
 var authService = AuthService();

@@ -12,7 +12,9 @@ import 'package:flutter/material.dart';
 
 
 class HotelService{
-  //get the hotels request
+
+
+  //get hotels request
   getHotels(navigate, id) async{
 
     var url = Uri.parse('$SERVER_URLL/hotel/hotels');
@@ -25,7 +27,7 @@ class HotelService{
     //set the hotels
     hotelStores.setDetails(hotel);
   }
-  //post create hotel request
+  //post hotel request
   createHotel(name,pricePerNight,extras,country,city) async{
     var url = Uri.parse('$SERVER_URLL/hotel/hotels');
     //body
@@ -36,12 +38,10 @@ class HotelService{
       "country": country,
       "city":city
     };
-    //enooding
-    var dataencoded = json.encode(data);
+    //encoding
+    var dataEncoded = json.encode(data);
     //request
-    var response = await http.post(url, body: dataencoded);
-    return response.statusCode;
-
+    var response = await http.post(url, body: dataEncoded);
 
   }
 

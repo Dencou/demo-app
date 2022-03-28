@@ -12,8 +12,9 @@ import 'package:http/http.dart' as http;
 class FeedbackService{
   
 
-  
+  //post new feedback
   Future createFeedback({rating, message, hotelid, userid}) async{
+
     var url = Uri.parse('$SERVER_URLL/feedback/feedback');
 
     var data={
@@ -22,19 +23,19 @@ class FeedbackService{
       "rating":rating,
       "message":message,
     };
-    var dataencode = json.encode(data);
-    var response = await http.post(url,body: dataencode,headers: { "accept": "application/json", "content-type": "application/json" });
-    var responsejson = json.decode(response.body);
+    var dataEncode = json.encode(data);
+    var response = await http.post(url,body: dataEncode,headers: { "accept": "application/json", "content-type": "application/json" });
   }
-  
-  Future getFeedbacks() async{
 
+  //get all feedbacks from the hotel
+  Future getFeedbacks() async{
+    //req
     var hotelid = hotelStores.currHotel.toString();
     var url = Uri.parse('$SERVER_URLL/feedback/$hotelid');
     var response = await http.get(url);
     var responsejson = json.decode(response.body);
 
-
+    //map the request
     List<FeedbackModel> feedbacks = List<FeedbackModel>.from(responsejson.map((feedback) =>
       FeedbackModel(userStores.email, userStores.name, feedback['message'], feedback['rating'], hotelStores.currHotel.toString())
     ));
@@ -42,11 +43,6 @@ class FeedbackService{
 
 
   }
-
-  Future getNamesForFeedback() async {
-
-  }
-
 
 }
 var feedbackService = FeedbackService();

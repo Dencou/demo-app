@@ -14,12 +14,9 @@ class Profile extends StatefulWidget{
 
 }
 class _Profile extends State<Profile>{
+
   @override
   Widget build(BuildContext context) {
-
-    var name = 'Juan Martinez';
-
-
     return Scaffold(
 
       body: Column(
@@ -72,19 +69,15 @@ class _Profile extends State<Profile>{
                                 padding: EdgeInsets.all(10),
                                 decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
                                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Travels'), Text('You dont have any travels at this time')],),),
-
                             ],
                           ),
                         ),
                       )
-
                     ],
                   )
               ),
             ),
           )
-
-
         ],
       ),
     );

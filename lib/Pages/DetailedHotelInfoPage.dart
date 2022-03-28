@@ -20,25 +20,11 @@ class DetailedHotelInfoPage extends StatelessWidget{
 
 
 
-  final data = hotelStores.hotels.map((e) => e.id == hotelStores.currHotel);
-
 
   List<HotelCardModel> hotel = List<HotelCardModel>.from(hotelStores.hotels.where((element) => element.id == hotelStores.currHotel).map((e) =>
       HotelCardModel(name: e.name, bannerImage: e.bannerImage, country: e.country, price: e.price, extras: e.extras, city: e.city, id: e.id)
   ));
-  List<FeedbackModel> feedback = List<FeedbackModel>.from(feedbackStore.feedbacks.where((element) => element.id.toString() == hotelStores.currHotel.toString()).map((e) =>
-      FeedbackModel(e.userPhoto, e.userName, e.message, e.rating, e.id)
-  ));
 
-
-  submit(){
-
-    var currhotel = hotelStores.hotels;
-
-
-
-
-  }
 
 
   @override

@@ -12,12 +12,8 @@ abstract class FeedbackStoresBase with Store {
   @observable
   List<FeedbackModel> feedbacks = [];
 
-
-
-
   @action
   void setFeedback(rating){
-
     this.rating = rating;
 
   }

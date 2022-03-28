@@ -17,7 +17,7 @@ class _FeedbackPage extends State<FeedbackPage>{
   TextEditingController message = TextEditingController();
 
   void sumbit(){
-
+    //store the rating
     var rating = feedbackStore.rating.toInt();
     //create feedback
     feedbackService.createFeedback(rating:rating.toInt(),message: message.text,hotelid: hotelStores.currHotel, userid: userStores.id);

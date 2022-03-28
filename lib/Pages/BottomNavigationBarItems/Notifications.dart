@@ -10,6 +10,7 @@ class Notifications extends StatefulWidget{
 
 
 }
+//notification system (hardcoded)
 class _Notifications extends State<Notifications>{
   @override
   Widget build(BuildContext context) {

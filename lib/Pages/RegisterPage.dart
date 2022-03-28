@@ -18,9 +18,9 @@ class RegisterPage extends StatelessWidget{
   TextEditingController password = TextEditingController();
   TextEditingController cpassword = TextEditingController();
 
-
+  //calls the register service
   submit(){
-    final image = "https://via.placeholder.com/150";
+    const image = "https://via.placeholder.com/150";
 
     authService.singUp(
         name: name.text,
@@ -41,7 +41,7 @@ class RegisterPage extends StatelessWidget{
     return Scaffold(
       body: Container(
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration:const  BoxDecoration(
             image: DecorationImage(
                 image: NetworkImage('https://media.istockphoto.com/vectors/black-square-pattern-luxury-sofa-background-and-texture-vector-id902378754?k=20&m=902378754&s=170667a&w=0&h=tez0M1n5c6oJ88pqllAr3SMxEW8TfFxHaNufn5lTFc0='),
                 fit: BoxFit.cover
@@ -61,7 +61,7 @@ class RegisterPage extends StatelessWidget{
                           GradientText('MOMENTUM',style: GoogleFonts.merriweatherSans(textStyle: TextStyle(fontSize: 40)), gradient: LinearGradient(colors: [Colors.purpleAccent,Colors.deepPurple])),
                           GradientText('GROWTH • HAPPENDS • TODAY',style: GoogleFonts.dancingScript(textStyle: TextStyle(fontSize: 24)), gradient: LinearGradient(colors: [Colors.red,Colors.orange,Colors.yellow,Colors.green,Colors.blue,Colors.purple])),
 
-                          SizedBox(height: 40,),
+                          const SizedBox(height: 40,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -69,9 +69,9 @@ class RegisterPage extends StatelessWidget{
                               TextButton(onPressed: ()=>{}, child: Text('Sign up',style: TextStyle(color: secColors,fontSize: 20),)),
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          const SizedBox(height: 10,),
                           TextField(
-                            style: TextStyle(color: Colors.white),
+                            style:const  TextStyle(color: Colors.white),
                             controller: email,
                             decoration: InputDecoration(
                                 hintText: 'Email',
@@ -86,9 +86,9 @@ class RegisterPage extends StatelessWidget{
                             ),
 
                           ),
-                          SizedBox(height: 16,),
+                          const SizedBox(height: 16,),
                           TextField(
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                             controller: name,
                             decoration: InputDecoration(
                                 hintText: 'Username',
@@ -103,7 +103,7 @@ class RegisterPage extends StatelessWidget{
                             ),
 
                           ),
-                          SizedBox(height: 16,),
+                          const  SizedBox(height: 16,),
                           TextField(
                             style: TextStyle(color: Colors.white),
                             controller: country,
@@ -120,9 +120,9 @@ class RegisterPage extends StatelessWidget{
                             ),
 
                           ),
-                          SizedBox(height: 16,),
+                          const SizedBox(height: 16,),
                           TextField(
-                            style: TextStyle(color: Colors.white),
+                            style:const  TextStyle(color: Colors.white),
                               controller: password,
                               obscureText: true,
                             decoration: InputDecoration(
@@ -139,7 +139,7 @@ class RegisterPage extends StatelessWidget{
                             ),
 
                           ),
-                          SizedBox(height: 16,),
+                          const SizedBox(height: 16,),
                           TextField(
                             style: TextStyle(color: Colors.white),
                             controller: cpassword,
@@ -157,7 +157,7 @@ class RegisterPage extends StatelessWidget{
                             ),
                           ),
 
-                          SizedBox(height: 20,),
+                          const SizedBox(height: 20,),
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 minimumSize: Size.fromHeight(40),
@@ -168,16 +168,16 @@ class RegisterPage extends StatelessWidget{
 
                               ),
                               onPressed: ()=>{submit()},
-                              child: Text('Sign up')
+                              child: const Text('Sign up')
 
                           ),
 
-                          SizedBox(height: 12,),
+                          const SizedBox(height: 12,),
 
                           Center(
                             child: GestureDetector(
                               onTap: ()=>{Get.off(LoginPage())},
-                              child: Text('Already have an account? Log in!',style: TextStyle(color: Colors.grey),),
+                              child: const Text('Already have an account? Log in!',style: TextStyle(color: Colors.grey),),
                             ),
                           )
 
