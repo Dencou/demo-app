@@ -18,14 +18,18 @@ class HotelService{
   getHotels(navigate, id) async{
 
     var url = Uri.parse('$SERVER_URLL/hotel/hotels');
-    var response = await http.get(url);
-    var responsejson = json.decode(response.body);
-    //map the response to the HotelCardModel to save in the store
-    List<HotelCardModel> hotel = List<HotelCardModel>.from(responsejson.map((hotel) =>
-        HotelCardModel(id:hotel['id'],name: hotel['name'], extras: hotel['extras'], country: hotel['country'], city: hotel['city'], price: hotel['pricePerNight'],bannerImage: hotel['roomPhoto'])
-     ));
-    //set the hotels
-    hotelStores.setDetails(hotel);
+    try{
+      var response = await http.get(url);
+      var responsejson = json.decode(response.body);
+      //map the response to the HotelCardModel to save in the store
+      List<HotelCardModel> hotel = List<HotelCardModel>.from(responsejson.map((hotel) =>
+          HotelCardModel(id:hotel['id'],name: hotel['name'], extras: hotel['extras'], country: hotel['country'], city: hotel['city'], price: hotel['pricePerNight'],bannerImage: hotel['roomPhoto'])
+      ));
+      //set the hotels
+      hotelStores.setDetails(hotel);
+    }on Exception{
+      Get.snackbar("Error", "Can't process the request now, please try again later");
+    }
   }
   //post hotel request
   createHotel(name,pricePerNight,extras,country,city) async{
@@ -38,13 +42,14 @@ class HotelService{
       "country": country,
       "city":city
     };
-    //encoding
     var dataEncoded = json.encode(data);
     //request
-    var response = await http.post(url, body: dataEncoded);
+    try{
+      await http.post(url, body: dataEncoded);
+    }on Exception{
+      Get.snackbar("Error","Can't process the request now, please try again later");
+    }
 
   }
-
-
 }
 var hotelService = HotelService();
