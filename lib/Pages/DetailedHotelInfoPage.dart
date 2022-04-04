@@ -1,5 +1,6 @@
 import 'package:demo_app/Models/FeedbackModel.dart';
 import 'package:demo_app/Models/HotelCardModel.dart';
+import 'package:demo_app/Pages/PaymentPage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/StateStores/feedback-stores.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
@@ -10,6 +11,8 @@ import 'package:demo_app/Widgets/UsersFeedback.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -92,15 +95,30 @@ class DetailedHotelInfoPage extends StatelessWidget{
                     Text('(0984) 314 588',style: GoogleFonts.inter()),
                     SizedBox(height: 20,),
 
-                    ElevatedButton(onPressed: ()=>{feedbackService.getFeedbacks()}, child: Text('Order a room', style: TextStyle(color: Colors.white),),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size.fromHeight(40),
-                        primary: Colors.deepPurpleAccent,
-                        shadowColor: Colors.deepPurple.shade800,
-                        elevation: 10,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
 
-                      ),),
+                    Row(
+                      children: [
+                        Expanded(child: ElevatedButton(onPressed: ()=>{Get.to(PaymentPage())}, child: Text('Order now'), style: ElevatedButton.styleFrom(
+                          minimumSize: Size.fromHeight(40),
+                          primary: Colors.deepPurpleAccent,
+                          shadowColor: Colors.deepPurple.shade800,
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        ),),),
+                        SizedBox(width: 10,),
+                        Expanded(child: ElevatedButton(onPressed: () => {}, child: Text('Save hotel'), style: ElevatedButton.styleFrom(
+                          minimumSize: Size.fromHeight(40),
+                          primary: Colors.deepPurpleAccent,
+                          shadowColor: Colors.deepPurple.shade800,
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        ),))
+
+
+
+                      ],
+                    ),
+
 
 
 

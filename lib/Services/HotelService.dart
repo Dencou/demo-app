@@ -51,5 +51,22 @@ class HotelService{
     }
 
   }
+
+  //TODO: create a model for this
+  saveHotel(hotel){
+
+  }
+  getSavedHotels(userId){
+
+  }
+  deleteHotelById(id){
+
+  }
+  deleteAllHotels(){
+
+  }
+
+
+
 }
 var hotelService = HotelService();

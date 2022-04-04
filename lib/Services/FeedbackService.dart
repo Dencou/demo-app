@@ -37,8 +37,8 @@ class FeedbackService{
   Future getFeedbacks() async{
 
     //req
-    var currhotelid = hotelStores.currHotel.toString();
-    var url = Uri.parse('$SERVER_URLL/feedback/$currhotelid');
+    var currHotelId = hotelStores.currHotel.toString();
+    var url = Uri.parse('$SERVER_URLL/feedback/$currHotelId');
     try{
       var response = await http.get(url);
       var responsejson = json.decode(response.body);

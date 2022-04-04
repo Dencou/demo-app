@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:demo_app/Services/FeedbackService.dart';
+import 'package:demo_app/Widgets/SnackBarW.dart';
 import 'package:http/http.dart' as http;
 import 'package:demo_app/Consts/SERVER_URL.dart';
 import 'package:demo_app/Pages/HomePage.dart';
@@ -32,7 +33,10 @@ class AuthService{
       await hotelService.getHotels(false,false);
 
       //store the JWT token
-      await getUserData(responsejson['access_token']);
+      var token = responsejson['access_token'];
+      await getUserData(token);
+
+
 
       Get.off(HomePage());
     }on Exception{
@@ -46,7 +50,7 @@ class AuthService{
 
     //verify if the passwords matches
     if(password != cpassword){
-      return Get.snackbar("Error","Credentials mismatch");
+      SnackBarW.snackBarCredentialsInvalid(message: "Passwords mismatch");
     }else{
       try{
         //request body
@@ -70,7 +74,7 @@ class AuthService{
 
         Get.off(HomePage());
       }on Exception{
-        Get.snackbar("Error","Internal server error");
+        SnackBarW.snackBars();
       }
 
     }
