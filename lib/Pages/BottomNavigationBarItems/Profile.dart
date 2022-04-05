@@ -1,8 +1,11 @@
 import 'package:demo_app/Models/HotelCardModel.dart';
+import 'package:demo_app/Pages/SavedHotelsPage.dart';
 import 'package:demo_app/StateStores/user-stores.dart';
 import 'package:demo_app/Widgets/HotelCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class Profile extends StatefulWidget{
 
@@ -84,7 +87,7 @@ class _Profile extends State<Profile>{
 
       ),
       //TODO:Add the route
-      floatingActionButton: FloatingActionButton.extended(onPressed: ()=>{}, label: Text('Saved hotels'),icon: Icon(Icons.save),),
+      floatingActionButton: FloatingActionButton.extended(onPressed: ()=>{Get.to(SavedHotelsPage())}, label: Text('Saved hotels'),icon: Icon(Icons.save),),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

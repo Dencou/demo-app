@@ -2,6 +2,7 @@ import 'package:demo_app/Models/FeedbackModel.dart';
 import 'package:demo_app/Models/HotelCardModel.dart';
 import 'package:demo_app/Pages/PaymentPage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
+import 'package:demo_app/Services/HotelService.dart';
 import 'package:demo_app/StateStores/feedback-stores.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
 import 'package:demo_app/Widgets/AppBarW.dart';
@@ -27,6 +28,11 @@ class DetailedHotelInfoPage extends StatelessWidget{
   List<HotelCardModel> hotel = List<HotelCardModel>.from(hotelStores.hotels.where((element) => element.id == hotelStores.currHotel).map((e) =>
       HotelCardModel(name: e.name, bannerImage: e.bannerImage, country: e.country, price: e.price, extras: e.extras, city: e.city, id: e.id)
   ));
+
+  saveHotel(){
+    print(hotel[0].name);
+    hotelService.saveHotel(hotel[0].name, hotel[0].price, hotel[0].extras, hotel[0].country, hotel[0].city, hotel[0].bannerImage);
+  }
 
 
 
@@ -106,7 +112,7 @@ class DetailedHotelInfoPage extends StatelessWidget{
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                         ),),),
                         SizedBox(width: 10,),
-                        Expanded(child: ElevatedButton(onPressed: () => {}, child: Text('Save hotel'), style: ElevatedButton.styleFrom(
+                        Expanded(child: ElevatedButton(onPressed: () => {saveHotel()}, child: Text('Save hotel'), style: ElevatedButton.styleFrom(
                           minimumSize: Size.fromHeight(40),
                           primary: Colors.deepPurpleAccent,
                           shadowColor: Colors.deepPurple.shade800,

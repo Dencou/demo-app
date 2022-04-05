@@ -69,6 +69,21 @@ mixin _$UserStore on UserStoreBase, Store {
     });
   }
 
+  final _$imageAtom = Atom(name: 'UserStoreBase.image');
+
+  @override
+  String get image {
+    _$imageAtom.reportRead();
+    return super.image;
+  }
+
+  @override
+  set image(String value) {
+    _$imageAtom.reportWrite(value, super.image, () {
+      super.image = value;
+    });
+  }
+
   final _$UserStoreBaseActionController =
       ActionController(name: 'UserStoreBase');
 
@@ -100,7 +115,8 @@ mixin _$UserStore on UserStoreBase, Store {
 name: ${name},
 token: ${token},
 email: ${email},
-id: ${id}
+id: ${id},
+image: ${image}
     ''';
   }
 }

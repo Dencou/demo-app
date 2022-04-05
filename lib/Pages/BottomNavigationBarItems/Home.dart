@@ -18,14 +18,9 @@ class Home extends StatefulWidget{
     hotelService.getHotels(false,false);
   }
 
-
 class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
-
-
-
-
     return Scaffold(
 
         body: ListView(

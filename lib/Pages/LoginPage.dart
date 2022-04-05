@@ -114,7 +114,7 @@ class LoginPage extends StatelessWidget{
                             SizedBox(height: 12,),
                             Center(
                               child: GestureDetector(
-                                onTap: ()=>{},
+                                onTap: ()=>{hotelService.getSavedHotels(1)},
                                 child: Text('Forgot your password?',style: TextStyle(color: Colors.grey),),
                               ),
                             )

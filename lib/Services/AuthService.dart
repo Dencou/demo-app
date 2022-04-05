@@ -10,6 +10,7 @@ import 'package:demo_app/StateStores/user-stores.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 
+
 import 'HotelService.dart';
 
 class AuthService{
@@ -29,12 +30,15 @@ class AuthService{
 
       var responsejson = json.decode(response.body);
 
+
+
       //get the hotels request for HomePage()
       await hotelService.getHotels(false,false);
 
       //store the JWT token
       var token = responsejson['access_token'];
       await getUserData(token);
+
 
 
 
@@ -89,8 +93,12 @@ class AuthService{
     var response = await http.get(url,headers: {HttpHeaders.authorizationHeader:'Bearer $access_token'});
     var responsejson = json.decode(response.body);
 
+
+    await hotelService.getSavedHotels(responsejson['id']);
     //store user data
     userStores.setUserData(responsejson['name'],responsejson['email'], responsejson['id']);
+
+
     
   }
 
