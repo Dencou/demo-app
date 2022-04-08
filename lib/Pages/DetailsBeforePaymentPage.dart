@@ -1,4 +1,6 @@
+import 'package:demo_app/Consts/CURRENCY.dart';
 import 'package:demo_app/Pages/PaymentPage.dart';
+import 'package:demo_app/Services/PaymentService.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
 import 'package:demo_app/Widgets/AppBarW.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,6 +22,18 @@ class DetailsBeforePaymentPage extends StatefulWidget {
 class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
 
   int currentVal = 0;
+
+  submit(days,price,date){
+    try{
+      datesMatch();
+      paymentService.processPayment(days, date, price);
+    }on Exception{
+      print('japiro');
+    }
+
+
+
+  }
 
   String firstDay = '';
   String lastDay = '';
@@ -79,7 +93,7 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
                   ),
                   Text(hotelStores.name,style: GoogleFonts.inter(color: Colors.grey)),
                   const SizedBox(height: 4,),
-                  Text("\u{0024} ${hotelStores.price}",style: GoogleFonts.inter(fontSize: 24),),
+                  Text("\u{0024} ${hotelStores.price} $currency",style: GoogleFonts.inter(fontSize: 24),),
                   Text('Per night', style: GoogleFonts.inter(color: Colors.grey, fontSize: 12),),
                 ],
               ),
@@ -148,7 +162,7 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
 
             Padding(padding: EdgeInsets.all(20),
             child:
-            ElevatedButton(onPressed: ()=>{datesMatch()}, child: Text('Continue to payment', style:GoogleFonts.inter(color: Colors.white),),
+            ElevatedButton(onPressed: ()=>{submit(days,hotelStores.price,_range)}, child: Text('Continue to payment', style:GoogleFonts.inter(color: Colors.white),),
               style: ElevatedButton.styleFrom(
                 minimumSize:const Size.fromHeight(46),
                 primary: Colors.deepPurpleAccent,

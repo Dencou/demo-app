@@ -1,3 +1,4 @@
+import 'package:demo_app/Consts/CURRENCY.dart';
 import 'package:demo_app/Models/HotelCardModel.dart';
 import 'package:demo_app/Pages/DetailedHotelInfoPage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
@@ -80,7 +81,7 @@ class HotelCard extends StatelessWidget{
 
                               ],
                             ),
-                            Text(hotelCard.price),
+                            Text('${hotelCard.price} $currency'),
                           ],
                         ),
                       )

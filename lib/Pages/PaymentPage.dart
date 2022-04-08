@@ -1,4 +1,6 @@
+import 'package:demo_app/Consts/CURRENCY.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
+import 'package:demo_app/StateStores/payment-stores.dart';
 import 'package:demo_app/Widgets/AppBarW.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,8 @@ class PaymentPage extends StatelessWidget{
                children: [
 
                  Text(hotelStores.name,style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
+                 const SizedBox(height: 4,),
+                 Text('Dates: ${paymentStores.date}', style: TextStyle(color: Colors.grey.shade800)),
                  const SizedBox(height: 4,),
                  Text('Room Number #34', style: TextStyle(color: Colors.grey.shade800)),
                  const SizedBox(height: 4,),
@@ -112,7 +116,7 @@ class PaymentPage extends StatelessWidget{
                          ),
                        ),
                        const SizedBox(height: 30,),
-                       ElevatedButton(onPressed: ()=>{}, child: Text('Pay \u{0024}200.00US', style:GoogleFonts.inter(color: Colors.white,),),
+                       ElevatedButton(onPressed: ()=>{}, child: Text('Pay \u{0024} ${paymentStores.total} $currency', style:GoogleFonts.inter(color: Colors.white,),),
                          style: ElevatedButton.styleFrom(
                            minimumSize:const Size.fromHeight(46),
                            primary: Colors.deepPurpleAccent,
