@@ -14,15 +14,7 @@ abstract class HotelDetailsBase with Store {
   @observable
   String price='';
   @observable
-  String extra='';
-  @observable
-  String city='';
-  @observable
-  String country='';
-  @observable
-  String bannerImage='';
-
-
+  String bannerImage = '';
   @observable
   int currHotel = 0;
 
@@ -35,8 +27,10 @@ abstract class HotelDetailsBase with Store {
   }
 
   @action
-  void setDetailss(List<HotelCardModel> hotel){
-    this.hotels = hotel;
+  void setDetailss({required name, required price, required bannerImage}){
+    this.name = name;
+    this.price = price;
+    this.bannerImage = bannerImage;
 
   }
 

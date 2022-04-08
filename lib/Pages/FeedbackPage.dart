@@ -1,3 +1,4 @@
+import 'package:demo_app/Pages/HomePage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/Services/HotelService.dart';
 import 'package:demo_app/StateStores/feedback-stores.dart';
@@ -7,6 +8,8 @@ import 'package:demo_app/Widgets/AppBarW.dart';
 import 'package:demo_app/Widgets/RatinBarw.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class FeedbackPage extends StatefulWidget{
   @override
@@ -24,6 +27,8 @@ class _FeedbackPage extends State<FeedbackPage>{
     setState(() {
 
     });
+    Get.snackbar("Thanks","thanks for your feedback in ${hotelStores.name}");
+    Get.to(HomePage());
 
 
   }

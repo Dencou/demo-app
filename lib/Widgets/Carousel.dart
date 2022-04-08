@@ -31,6 +31,7 @@ class Carousel extends StatelessWidget{
         viewportFraction: 0.9,
         aspectRatio: 2.0,
         initialPage: 1,
+
       ),
     ),
       ],

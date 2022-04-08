@@ -1,5 +1,6 @@
 import 'package:demo_app/Models/FeedbackModel.dart';
 import 'package:demo_app/Models/HotelCardModel.dart';
+import 'package:demo_app/Pages/DetailsBeforePaymentPage.dart';
 import 'package:demo_app/Pages/PaymentPage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/Services/HotelService.dart';
@@ -105,7 +106,7 @@ class DetailedHotelInfoPage extends StatelessWidget{
 
                     Row(
                       children: [
-                        Expanded(child: ElevatedButton(onPressed: ()=>{Get.to(PaymentPage())}, child: Text('Order now'), style: ElevatedButton.styleFrom(
+                        Expanded(child: ElevatedButton(onPressed: ()=>{Get.to(DetailsBeforePaymentPage())}, child: Text('Order now'), style: ElevatedButton.styleFrom(
                           minimumSize: Size.fromHeight(40),
                           primary: Colors.deepPurpleAccent,
                           shadowColor: Colors.deepPurple.shade800,

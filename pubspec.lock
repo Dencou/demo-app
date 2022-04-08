@@ -305,6 +305,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  infinite_listview:
+    dependency: transitive
+    description:
+      name: infinite_listview
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.17.0"
   io:
     dependency: transitive
     description:
@@ -375,6 +389,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.5+2"
+  numberpicker:
+    dependency: "direct main"
+    description:
+      name: numberpicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   package_config:
     dependency: transitive
     description:
@@ -548,6 +569,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  syncfusion_flutter_core:
+    dependency: transitive
+    description:
+      name: syncfusion_flutter_core
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "20.1.47"
+  syncfusion_flutter_datepicker:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_datepicker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "20.1.47"
   term_glyph:
     dependency: transitive
     description:

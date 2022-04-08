@@ -20,6 +20,7 @@ class HotelCard extends StatelessWidget{
   Future<void> tap() async {
     //hotelStores.setCurrHotel(hotelCard.id);
     hotelStores.setCurrHotel(hotelCard.id);
+    hotelStores.setDetailss(name: hotelCard.name, price: hotelCard.price, bannerImage: hotelCard.bannerImage);
     print('getting feedbacks');
     await feedbackService.getFeedbacks();
 

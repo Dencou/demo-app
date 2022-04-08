@@ -54,51 +54,6 @@ mixin _$HotelDetails on HotelDetailsBase, Store {
     });
   }
 
-  final _$extraAtom = Atom(name: 'HotelDetailsBase.extra');
-
-  @override
-  String get extra {
-    _$extraAtom.reportRead();
-    return super.extra;
-  }
-
-  @override
-  set extra(String value) {
-    _$extraAtom.reportWrite(value, super.extra, () {
-      super.extra = value;
-    });
-  }
-
-  final _$cityAtom = Atom(name: 'HotelDetailsBase.city');
-
-  @override
-  String get city {
-    _$cityAtom.reportRead();
-    return super.city;
-  }
-
-  @override
-  set city(String value) {
-    _$cityAtom.reportWrite(value, super.city, () {
-      super.city = value;
-    });
-  }
-
-  final _$countryAtom = Atom(name: 'HotelDetailsBase.country');
-
-  @override
-  String get country {
-    _$countryAtom.reportRead();
-    return super.country;
-  }
-
-  @override
-  set country(String value) {
-    _$countryAtom.reportWrite(value, super.country, () {
-      super.country = value;
-    });
-  }
-
   final _$bannerImageAtom = Atom(name: 'HotelDetailsBase.bannerImage');
 
   @override
@@ -144,11 +99,15 @@ mixin _$HotelDetails on HotelDetailsBase, Store {
   }
 
   @override
-  void setDetailss(List<HotelCardModel> hotel) {
+  void setDetailss(
+      {required dynamic name,
+      required dynamic price,
+      required dynamic bannerImage}) {
     final _$actionInfo = _$HotelDetailsBaseActionController.startAction(
         name: 'HotelDetailsBase.setDetailss');
     try {
-      return super.setDetailss(hotel);
+      return super
+          .setDetailss(name: name, price: price, bannerImage: bannerImage);
     } finally {
       _$HotelDetailsBaseActionController.endAction(_$actionInfo);
     }
@@ -171,9 +130,6 @@ mixin _$HotelDetails on HotelDetailsBase, Store {
 hotels: ${hotels},
 name: ${name},
 price: ${price},
-extra: ${extra},
-city: ${city},
-country: ${country},
 bannerImage: ${bannerImage},
 currHotel: ${currHotel}
     ''';

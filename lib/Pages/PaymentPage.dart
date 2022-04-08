@@ -1,3 +1,5 @@
+import 'package:demo_app/StateStores/hotel-details.dart';
+import 'package:demo_app/Widgets/AppBarW.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,6 +9,7 @@ class PaymentPage extends StatelessWidget{
 
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBarW(),
       body: Column(
         children: [
          Padding(
@@ -14,20 +17,12 @@ class PaymentPage extends StatelessWidget{
            child:  Center(
              child: Column(
                children: [
-                 Container(
-                  width: 250,
-                  height: 180,
-                   child: ClipRRect(
-                     borderRadius: BorderRadius.circular(3),
-                     child: Image.network('https://www.thespruce.com/thmb/Sa2UtD7YEpm40_gdHvYDXcRT1wk=/889x667/smart/filters:no_upscale()/23-Pitt-Road-Springfield-NJ-0088-Web-47236bb26d304e9188c2f8f5668e2990.jpg',fit: BoxFit.fill,),
-                   ),
-               ),
-                 Text('Sao Paulo Montanha Hotel',style: GoogleFonts.inter(color: Colors.grey)),
+
+                 Text(hotelStores.name,style: GoogleFonts.inter(fontSize: 20, fontWeight: FontWeight.bold)),
                  const SizedBox(height: 4,),
                  Text('Room Number #34', style: TextStyle(color: Colors.grey.shade800)),
                  const SizedBox(height: 4,),
-                 Text("\u{0024}200.00US",style: GoogleFonts.inter(fontSize: 24),),
-                 Text('Per night', style: GoogleFonts.inter(color: Colors.grey, fontSize: 12),),
+
                  Padding(
                    padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20),
                    child: Column(
@@ -117,7 +112,7 @@ class PaymentPage extends StatelessWidget{
                          ),
                        ),
                        const SizedBox(height: 30,),
-                       ElevatedButton(onPressed: ()=>{}, child: Text('Pay \u{0024}200.00US', style:GoogleFonts.inter(color: Colors.white),),
+                       ElevatedButton(onPressed: ()=>{}, child: Text('Pay \u{0024}200.00US', style:GoogleFonts.inter(color: Colors.white,),),
                          style: ElevatedButton.styleFrom(
                            minimumSize:const Size.fromHeight(46),
                            primary: Colors.deepPurpleAccent,
