@@ -3,6 +3,7 @@ import 'package:demo_app/Pages/DetailedHotelInfoPage.dart';
 import 'package:demo_app/Services/HotelService.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
 import 'package:demo_app/Widgets/HotelCard.dart';
+import 'package:demo_app/Widgets/SearchBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -27,6 +28,7 @@ class _Home extends State<Home> {
           children: [
             Column(
                 children: [
+                  SearchBar(),
                   ...hotelStores.hotels.map((e) => HotelCard(e)),
                 ],
 

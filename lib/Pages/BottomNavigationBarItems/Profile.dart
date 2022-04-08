@@ -86,7 +86,7 @@ class _Profile extends State<Profile>{
           ],
 
       ),
-      //TODO:Add the route
+
       floatingActionButton: FloatingActionButton.extended(onPressed: ()=>{Get.to(SavedHotelsPage())}, label: Text('Saved hotels'),icon: Icon(Icons.save),),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

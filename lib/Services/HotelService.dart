@@ -90,9 +90,8 @@ class HotelService{
   }
   deleteHotelById(id)async{
     var url = Uri.parse('$SERVER_URLL/savedhotels/$id');
-    print(url);
+
     var response = await http.delete(url);
-    Get.off(HomePage());
     getSavedHotels(userStores.id);
 
 

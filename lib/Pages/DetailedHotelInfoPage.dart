@@ -83,14 +83,15 @@ class DetailedHotelInfoPage extends StatelessWidget{
 
                       },
                     ),
+
                     SizedBox(height: 10,),
                     Text('Hotel details',style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 20),),
+                    SizedBox(height: 4,),
+                    Text(this.hotel[0].name, style:GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 16),),
                     SizedBox(height: 4,),
                     Text(this.hotel[0].country + " - " + this.hotel[0].city,style: GoogleFonts.inter(),),
                     SizedBox(height: 4,),
                     Text(this.hotel[0].price,style: GoogleFonts.inter()),
-                    SizedBox(height: 4,),
-                    Text('Disabled friendly',style: GoogleFonts.inter()),
                     SizedBox(height: 4,),
                     Text("Extras",style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.bold)),
                     SizedBox(height: 4,),

@@ -24,11 +24,16 @@ class SavedHotelsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Center(
+             Center(
 
               child: Padding(
                 padding: EdgeInsets.all(10),
-                child: Text('Saved Hotels', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                child: Column(
+                  children: [
+                    Text('Saved Hotels', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                    Text('Slide to the right to remove hotel', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),),
+                  ],
+                )
               ),
             ),
             savedHotelsStores.savedHotels.isEmpty ?
