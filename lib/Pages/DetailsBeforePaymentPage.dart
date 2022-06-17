@@ -13,10 +13,12 @@ import 'package:intl/intl.dart';
 
 
 class DetailsBeforePaymentPage extends StatefulWidget {
+
   const DetailsBeforePaymentPage({Key? key}) : super(key: key);
 
   @override
   _DetailsBeforePaymentPageState createState() => _DetailsBeforePaymentPageState();
+
 }
 
 class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
@@ -28,11 +30,8 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
       datesMatch();
       paymentService.processPayment(days, date, price);
     }on Exception{
-      print('japiro');
+      print("err");
     }
-
-
-
   }
 
   String firstDay = '';
@@ -44,23 +43,17 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
     if(currentVal.toString() == days){
       Get.to(PaymentPage());
 
-
     }else{
-      Get.snackbar("Error", "the days you entered doesn't match");
-
+      Get.snackbar("Error", "the days you entered doesn't match", backgroundColor: Colors.red.shade400, colorText: Colors.white);
     }
   }
   void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-
     setState(() {
       if (args.value is PickerDateRange) {
         firstDay = DateFormat('d').format(args.value.startDate);
         lastDay = DateFormat('d').format(args.value.endDate);
-        print(firstDay);
-        print(lastDay);
 
         days = ( int.parse(lastDay) - int.parse(firstDay) + 1).toString();
-        print(days);
 
         _range = '${DateFormat('dd/MM/yyyy').format(args.value.startDate)} -'
             ' ${DateFormat('dd/MM/yyyy').format(args.value.endDate ?? args.value.startDate)}';
@@ -88,7 +81,7 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
                     height: 180,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(3),
-                      child: Image.network('${hotelStores.bannerImage}',fit: BoxFit.cover,),
+                      child: Image.network(hotelStores.bannerImage,fit: BoxFit.cover,),
                     ),
                   ),
                   Text(hotelStores.name,style: GoogleFonts.inter(color: Colors.grey)),
@@ -98,11 +91,11 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
                 ],
               ),
             ),
-            SizedBox(height: 10,),
-            Padding(
+            const SizedBox(height: 10,),
+            const Padding(
             padding: EdgeInsets.only(left: 20, bottom: 10),
             child:  Text('How many nights?', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),),
-            SizedBox(height: 5,),
+            const SizedBox(height: 5,),
             Center(
               child: Column(
                 children: [
@@ -131,13 +124,13 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
                           final newValue = currentVal + 1;
                           currentVal = newValue.clamp(0, 20);
                         })
-                      }, icon: Icon(Icons.add))
+                      }, icon: const Icon(Icons.add))
                     ],
                   ),
                 ],
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 20, bottom: 10),
               child: Text('Select the dates you will stay(first night is inclusive)', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
             ),
@@ -160,18 +153,19 @@ class _DetailsBeforePaymentPageState extends State<DetailsBeforePaymentPage> {
               ),
             ),
 
-            Padding(padding: EdgeInsets.all(20),
-            child:
-            ElevatedButton(onPressed: ()=>{submit(days,hotelStores.price,_range)}, child: Text('Continue to payment', style:GoogleFonts.inter(color: Colors.white),),
-              style: ElevatedButton.styleFrom(
-                minimumSize:const Size.fromHeight(46),
-                primary: Colors.deepPurpleAccent,
-                shadowColor: Colors.deepPurple.shade800,
-                elevation: 10,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child:
+              ElevatedButton(onPressed: ()=>{submit(days,hotelStores.price,_range)}, child: Text('Continue to payment', style:GoogleFonts.inter(color: Colors.white),),
+                style: ElevatedButton.styleFrom(
+                  minimumSize:const Size.fromHeight(46),
+                  primary: Colors.deepPurpleAccent,
+                  shadowColor: Colors.deepPurple.shade800,
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
 
-              ),),
-            )
+                ),),
+              )
 
           ],
         ),

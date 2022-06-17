@@ -27,9 +27,9 @@ class SavedHotelsPage extends StatelessWidget {
              Center(
 
               child: Padding(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
-                  children: [
+                  children: const [
                     Text('Saved Hotels', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                     Text('Slide to the right to remove hotel', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),),
                   ],

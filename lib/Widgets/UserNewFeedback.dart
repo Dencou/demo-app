@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class UserNewFeedback extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,10 +13,10 @@ class UserNewFeedback extends StatelessWidget{
       child: Center(
         child: Column(
           children: [
-            Text('Want to write a feedback?'),
-            ElevatedButton(onPressed: ()=>{Get.to(FeedbackPage())}, child: Text('Give a feedback',style: TextStyle(color: Colors.black),),
+            const Text('Want to write a feedback?'),
+            ElevatedButton(onPressed: ()=>{Get.to(FeedbackPage())}, child: const Text('Give a feedback',style: TextStyle(color: Colors.black),),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size.fromHeight(30),
+                minimumSize: const Size.fromHeight(30),
                 primary: Colors.white,
                 shadowColor: Colors.white,
                 elevation: 5,

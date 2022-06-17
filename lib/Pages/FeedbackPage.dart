@@ -1,6 +1,5 @@
 import 'package:demo_app/Pages/HomePage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
-import 'package:demo_app/Services/HotelService.dart';
 import 'package:demo_app/StateStores/feedback-stores.dart';
 import 'package:demo_app/StateStores/hotel-details.dart';
 import 'package:demo_app/StateStores/user-stores.dart';
@@ -12,10 +11,12 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class FeedbackPage extends StatefulWidget{
+
   @override
   _FeedbackPage createState() => _FeedbackPage();
 
 }
+
 class _FeedbackPage extends State<FeedbackPage>{
   TextEditingController message = TextEditingController();
 

@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class PaymentService{
 
-  processPayment(days, date, price)async{
+  processPayment(days, date, price) async {
     var url = Uri.parse('$SERVER_URLL/hotel/payment');
     var dayss =int.parse(days);
     var pricee = int.parse(price);
@@ -22,9 +22,8 @@ class PaymentService{
 
     var response = await http.post(url,body: data,headers: { "accept": "application/json", "content-type": "application/json" });
     var responsejson = json.decode(response.body);
-    paymentStores.setFeedback(responsejson['total'], responsejson['date']);
 
-    print(paymentStores.date);
+    paymentStores.setFeedback(responsejson['total'], responsejson['date']);
 
   }
 

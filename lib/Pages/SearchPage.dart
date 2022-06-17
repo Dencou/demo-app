@@ -15,16 +15,11 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   TextEditingController search = TextEditingController();
 
-  submit(querry)async{
-    print("submit");
-    await searchService.search(querry);
+  submit(query)async{
+    await searchService.search(query);
     setState(() {
 
     });
-
-  }
-  
-  hola(){
 
   }
 
@@ -38,40 +33,34 @@ class _SearchPageState extends State<SearchPage> {
           Column(
             children: [
                 Padding(
-                padding: EdgeInsets.only(top: 10,left: 10,right: 10),
+                padding: const EdgeInsets.only(top: 10,left: 10,right: 10),
                   child: Column(
                     children: [
                       TextField(
                         controller: search,
                         decoration: InputDecoration(
                           filled: true,
-                          contentPadding: EdgeInsets.all(16),
+                          contentPadding: const EdgeInsets.all(16),
                           fillColor: Colors.lightBlue.shade100,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               width: 0,
                               style: BorderStyle.none,
                             ),
 
                           ),
-                          label: Text('Search for hotels and countries'),
-                          suffixIcon: Icon(Icons.search),
-
+                          label: const Text('Search for hotels and countries'),
+                          suffixIcon: const Icon(Icons.search),
                         ),
-
-
                       ),
                       ElevatedButton(onPressed: ()=>{
                         setState((){}),
                         submit(search.text),
-
-
-                      }, child: Text("press me !"))
+                      }, child: const Text("press me !"))
                     ],
                   )
               ),
-
               ...searchStores.savedHotels.map((e) => HotelCard(e)),
             ],
           )

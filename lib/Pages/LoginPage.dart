@@ -11,23 +11,19 @@ import 'package:google_fonts/google_fonts.dart';
 import 'HomePage.dart';
 
 class LoginPage extends StatelessWidget{
-   TextEditingController email = TextEditingController();
-   TextEditingController name = TextEditingController();
-   TextEditingController password = TextEditingController();
 
+   TextEditingController email = TextEditingController();
+   TextEditingController password = TextEditingController();
 
    //login request
   submit(){
-    authService.login(name:name.text,password:password.text,email:email.text);
+    authService.login(password:password.text,email:email.text);
   }
   //Text color
   var secColors = Colors.white;
 
-
   @override
   Widget build(BuildContext context) {
-
-
 
     return Scaffold(
       body: Hero(
@@ -45,25 +41,25 @@ class LoginPage extends StatelessWidget{
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 0),
+                      padding: const EdgeInsets.only(top: 0),
                       child: Container(
                         width: 350,
                         child: Column(
                           children: [
-                            GradientText('MOMENTUM',style: GoogleFonts.merriweatherSans(textStyle: TextStyle(fontSize: 40)), gradient: LinearGradient(colors: [Colors.purpleAccent,Colors.deepPurple])),
-                            GradientText('GROWTH • HAPPENDS • TODAY',style: GoogleFonts.dancingScript(textStyle: TextStyle(fontSize: 24)), gradient: LinearGradient(colors: [Colors.red,Colors.orange,Colors.yellow,Colors.green,Colors.blue,Colors.purple])),
+                            GradientText('MOMENTUM',style: GoogleFonts.merriweatherSans(textStyle: const TextStyle(fontSize: 40)), gradient: const LinearGradient(colors: [Colors.purpleAccent,Colors.deepPurple])),
+                            GradientText('GROWTH • HAPPENS • TODAY',style: GoogleFonts.dancingScript(textStyle: const TextStyle(fontSize: 24)), gradient: const LinearGradient(colors: [Colors.red,Colors.orange,Colors.yellow,Colors.green,Colors.blue,Colors.purple])),
 
                             SizedBox(height: 40,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 TextButton(onPressed: ()=>{}, child: Text('Sign in',style: TextStyle(color: secColors,fontSize: 20),)),
-                                TextButton(onPressed: ()=>{Get.off(RegisterPage(),duration: Duration(milliseconds: 0),transition: Transition.fadeIn)}, child: Text('Sign up',style: TextStyle(color: secColors,fontSize: 20),)),
+                                TextButton(onPressed: ()=>{Get.off(RegisterPage(),duration: const Duration(milliseconds: 0),transition: Transition.fadeIn)}, child: Text('Sign up',style: TextStyle(color: secColors,fontSize: 20),)),
                               ],
                             ),
-                            SizedBox(height: 10,),
+                            const SizedBox(height: 10,),
                             TextField(
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               controller: email,
                               decoration: InputDecoration(
                                   hintText: 'Email',
@@ -78,9 +74,9 @@ class LoginPage extends StatelessWidget{
                               ),
 
                             ),
-                            SizedBox(height: 16,),
+                            const SizedBox(height: 16,),
                             TextField(
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               obscureText: true,
                               controller: password,
                               decoration: InputDecoration(
@@ -97,10 +93,10 @@ class LoginPage extends StatelessWidget{
                               ),
                             ),
 
-                            SizedBox(height: 20,),
+                            const SizedBox(height: 20,),
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  minimumSize: Size.fromHeight(40),
+                                  minimumSize: const Size.fromHeight(40),
                                   primary: Colors.deepPurpleAccent,
                                   shadowColor: Colors.deepPurpleAccent,
                                   elevation: 10,
@@ -108,14 +104,14 @@ class LoginPage extends StatelessWidget{
 
                                 ),
                                 onPressed: ()=>{submit()},
-                                child: Text('Sign in')
+                                child: const Text('Sign in')
 
                             ),
-                            SizedBox(height: 12,),
+                            const SizedBox(height: 12,),
                             Center(
                               child: GestureDetector(
                                 onTap: ()=>{hotelService.getSavedHotels(1)},
-                                child: Text('Forgot your password?',style: TextStyle(color: Colors.grey),),
+                                child: const Text('Forgot your password?',style: TextStyle(color: Colors.grey),),
                               ),
                             )
 

@@ -25,13 +25,10 @@ class _Profile extends State<Profile>{
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Container(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               width: double.infinity,
-              decoration: BoxDecoration(
-                  color: Colors.grey.shade200
-              ),
               child: Center(
                   child: Column(
                     children: [
@@ -39,7 +36,7 @@ class _Profile extends State<Profile>{
                         width: 100,
                         height: 100,
                         decoration: const BoxDecoration(
-                            color: Colors.blue,
+                            color: Colors.white,
                             borderRadius: BorderRadius.all(Radius.circular(100)),
                             image: DecorationImage(
                                 image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHlIC6mj9KXGnVloMBpbZ5MULyumav2TarjA&usqp=CAU'),
@@ -47,35 +44,34 @@ class _Profile extends State<Profile>{
                             )
                         ),
                       ),
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(height: 30,),
+                          Divider(),
+                          Row(
                             children: [
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Name'), Text(userStores.name)],),),
-                              SizedBox(height: 20,),
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Email'), Text(userStores.email)],),),
-                              SizedBox(height: 20,),
-                              Container(
-                                width: double.infinity,
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(border:Border.all(color: Colors.black12)),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Text('Travels'), Text('You dont have any travels at this time')],),),
+                              const Icon(Icons.person, color: Colors.deepPurpleAccent,),
+                              const SizedBox(width: 10,),
+                              Text(userStores.name, style: TextStyle(fontSize: 18),),
                             ],
                           ),
-                        ),
-                      ),
+                          const Divider(),
+                          Row(
+                            children: [
+                              Icon(Icons.mail, color: Colors.deepPurpleAccent),
+                              const SizedBox(width: 10,),
+                              Text(userStores.email, style: TextStyle(fontSize: 18)),
+                            ],
+                          ),
+                          const Divider(),
+
+
+
+
+                        ],
+                      )
+
 
                     ],
                   )

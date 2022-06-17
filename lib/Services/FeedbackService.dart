@@ -14,7 +14,7 @@ import 'package:http/http.dart' as http;
 class FeedbackService{
   
 
-  //post new feedback
+  //POST new feedback
   Future createFeedback({rating, message, hotelid, userid}) async{
 
     var url = Uri.parse('$SERVER_URLL/feedback/feedback');
@@ -33,7 +33,7 @@ class FeedbackService{
     }
   }
 
-  //get all feedbacks from the hotel
+  //GET all feedbacks from the hotel and maps into FeedbackModel
   Future getFeedbacks() async{
 
     //req

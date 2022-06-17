@@ -21,7 +21,6 @@ class RegisterPage extends StatelessWidget{
   //calls the register service
   submit(){
     const image = "https://via.placeholder.com/150";
-    print('request');
     authService.singUp(
         name: name.text,
         email: email.text,

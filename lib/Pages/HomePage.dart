@@ -1,16 +1,12 @@
 import 'package:demo_app/Models/NotificationCardModel.dart';
 import 'package:demo_app/Pages/BottomNavigationBarItems/Home.dart';
 import 'package:demo_app/Pages/BottomNavigationBarItems/Profile.dart';
-import 'package:demo_app/Pages/RegisterPage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/Widgets/AppBarW.dart';
-import 'package:demo_app/Widgets/HotelCard.dart';
-import 'package:demo_app/Widgets/NotificationCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'BottomNavigationBarItems/Notifications.dart';
-import 'LoginPage.dart';
+
 
 class HomePage extends StatefulWidget{
 

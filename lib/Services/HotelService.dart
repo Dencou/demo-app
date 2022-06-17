@@ -17,8 +17,7 @@ import 'package:flutter/material.dart';
 
 class HotelService{
 
-
-  //get hotels request
+  //GET hotels request and maps the response into a HotelCardModel
   getHotels(navigate, id) async{
     var url = Uri.parse('$SERVER_URLL/hotel/hotels');
     try{
@@ -26,7 +25,15 @@ class HotelService{
       var responsejson = json.decode(response.body);
       //map the response to the HotelCardModel to save in the store
       List<HotelCardModel> hotel = List<HotelCardModel>.from(responsejson.map((hotel) =>
-          HotelCardModel(id:hotel['id'],name: hotel['name'], extras: hotel['extras'], country: hotel['country'], city: hotel['city'], price: hotel['pricePerNight'],bannerImage: hotel['roomPhoto'])
+          HotelCardModel(
+              id:hotel['id'],
+              name: hotel['name'],
+              extras: hotel['extras'],
+              country: hotel['country'],
+              city: hotel['city'],
+              price: hotel['pricePerNight'],
+              bannerImage: hotel['roomPhoto']
+          )
       ));
       //set the hotels
       hotelStores.setDetails(hotel);
@@ -34,7 +41,7 @@ class HotelService{
       Get.snackbar("Error", "Can't process the request now, please try again later");
     }
   }
-  //post hotel request
+  // POST
   createHotel(name,pricePerNight,extras,country,city) async{
     var url = Uri.parse('$SERVER_URLL/hotel/hotels');
     //body
@@ -54,8 +61,7 @@ class HotelService{
     }
 
   }
-
-
+  // POST
   saveHotel(name,pricePerNight,extras,country,city,roomphoto)async{
     var url = Uri.parse('$SERVER_URLL/savedhotels/savehotel');
     var data = {
@@ -69,41 +75,49 @@ class HotelService{
     };
 
     var dataEncoded = json.encode(data);
-    var response = await http.post(url,body: dataEncoded,headers: { "accept": "application/json", "content-type": "application/json" });
-    print(response.statusCode);
+    var response = await http.post(
+        url,
+        body: dataEncoded,
+        headers: { "accept": "application/json", "content-type": "application/json"});
+
     await getSavedHotels(userStores.id);
 
   }
+  //GET
   getSavedHotels(userId) async{
     var url = Uri.parse('$SERVER_URLL/savedHotels/$userId');
     var response = await http.get(url);
     var responsejson = json.decode(response.body);
     
     List<SavedHotelModel> hotel = List<SavedHotelModel>.from(responsejson.map((hotel)=>
-      SavedHotelModel(name: hotel['name'], bannerImage: hotel['roomPhoto'], country: hotel['country'], price: hotel['pricePerNight'], extras: hotel['extras'], city: hotel['city'], id: hotel['id'])
+      SavedHotelModel(
+          name: hotel['name'],
+          bannerImage: hotel['roomPhoto'],
+          country: hotel['country'],
+          price: hotel['pricePerNight'],
+          extras: hotel['extras'],
+          city: hotel['city'],
+          id: hotel['id'])
     ));
     
     savedHotelsStores.setSavedHotels(hotel);
 
-
-
   }
+  // DELETE (by id)
   deleteHotelById(id)async{
     var url = Uri.parse('$SERVER_URLL/savedhotels/$id');
-
     var response = await http.delete(url);
     getSavedHotels(userStores.id);
 
-
   }
+
+  //DELETE
   deleteAllHotels()async{
     var url = Uri.parse('$SERVER_URLL/savedhotels');
     var response = await http.delete(url);
     hotelService.getSavedHotels(userStores.id);
 
   }
-
-
 
 }
 var hotelService = HotelService();

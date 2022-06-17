@@ -28,7 +28,7 @@ class PaymentPage extends StatelessWidget{
                  const SizedBox(height: 4,),
 
                  Padding(
-                   padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20),
+                   padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 20),
                    child: Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
@@ -42,7 +42,7 @@ class PaymentPage extends StatelessWidget{
 
                            decoration: InputDecoration(
                              label: Text('example@example.com',style: GoogleFonts.inter()),
-                             suffixIcon: Icon(Icons.mail_outline,size: 20),
+                             suffixIcon: const Icon(Icons.mail_outline,size: 20),
                              border: OutlineInputBorder(
 
                                  borderRadius: BorderRadius.circular(8),
@@ -50,7 +50,7 @@ class PaymentPage extends StatelessWidget{
                            ),
                          ),
                        ),
-                       SizedBox(height: 12,),
+                       const SizedBox(height: 12,),
                        Text('Card Information',style: GoogleFonts.inter()),
                        Column(
                          children: [
@@ -74,8 +74,8 @@ class PaymentPage extends StatelessWidget{
                                    child: TextField(
                                      decoration: InputDecoration(
                                        label: Text('Expiration date',style: GoogleFonts.inter(fontSize: 15)),
-                                         suffixIcon: Icon(Icons.date_range_outlined,size: 20),
-                                         contentPadding: EdgeInsets.all(12),
+                                         suffixIcon: const Icon(Icons.date_range_outlined,size: 20),
+                                         contentPadding: const EdgeInsets.all(12),
 
                                          border: const OutlineInputBorder(
                                            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8)),
@@ -87,7 +87,7 @@ class PaymentPage extends StatelessWidget{
                                    child: TextField(
                                      decoration: InputDecoration(
                                        label: Text('Security Code',style: GoogleFonts.inter()),
-                                       suffixIcon: Icon(Icons.password_outlined,size: 20),
+                                       suffixIcon: const Icon(Icons.password_outlined,size: 20),
                                        contentPadding: EdgeInsets.all(12),
                                          border: const OutlineInputBorder(
                                            borderRadius: BorderRadius.only( bottomRight: Radius.circular(8)),
@@ -136,6 +136,5 @@ class PaymentPage extends StatelessWidget{
       ),
     );
   }
-
 
 }

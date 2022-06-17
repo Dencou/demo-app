@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:demo_app/Pages/LoginPage.dart';
 import 'package:demo_app/Services/FeedbackService.dart';
 import 'package:demo_app/Widgets/SnackBarW.dart';
 import 'package:http/http.dart' as http;
@@ -15,7 +16,7 @@ import 'HotelService.dart';
 
 class AuthService{
 
-  Future login({required String name, required String password, required String email})async{
+  Future login({required String password, required String email})async{
     var url = Uri.parse('$SERVER_URLL/auth/signin');
 
     //body for the request
@@ -23,14 +24,10 @@ class AuthService{
       'email':email,
       'password':password
     };
-
     try{
       //do the request
       var response = await http.post(url, body: data);
-
       var responsejson = json.decode(response.body);
-
-
 
       //get the hotels request for HomePage()
       await hotelService.getHotels(false,false);
@@ -39,10 +36,8 @@ class AuthService{
       var token = responsejson['access_token'];
       await getUserData(token);
 
-
-
-
       Get.off(HomePage());
+
     }on Exception{
       Get.snackbar('Error', 'please verify your credentials or try again later');
     }
@@ -82,6 +77,12 @@ class AuthService{
       }
 
     }
+
+  }
+
+  Future logOut() async{
+
+    userStores.token == "";
 
   }
 

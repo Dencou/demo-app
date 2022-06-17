@@ -2,6 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AppBarW extends StatelessWidget implements PreferredSizeWidget{
+
+
+  icon(){
+      const Padding(
+        padding: EdgeInsets.only(right: 5),
+        child: Icon(
+          Icons.edit,
+        ),
+      );
+  }
+
   @override
 
   Size get preferredSize => Size.fromHeight(kToolbarHeight);

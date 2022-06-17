@@ -32,8 +32,15 @@ class DetailedHotelInfoPage extends StatelessWidget{
   ));
 
   saveHotel(){
-    print(hotel[0].name);
-    hotelService.saveHotel(hotel[0].name, hotel[0].price, hotel[0].extras, hotel[0].country, hotel[0].city, hotel[0].bannerImage);
+
+    hotelService.saveHotel(
+        hotel[0].name,
+        hotel[0].price,
+        hotel[0].extras,
+        hotel[0].country,
+        hotel[0].city,
+        hotel[0].bannerImage
+    );
   }
 
 

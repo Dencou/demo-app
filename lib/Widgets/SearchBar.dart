@@ -9,36 +9,35 @@ class SearchBar extends StatelessWidget {
 
   TextEditingController search = TextEditingController();
 
-  submit(querry)async{
-    print("submit");
-    await searchService.search(querry);
+  submit(query)async{
+    await searchService.search(query);
   }
 
   @override
   Widget build(BuildContext context) {
     return  Padding(
-        padding: EdgeInsets.only(top: 10,left: 10,right: 10),
+        padding: const EdgeInsets.only(top: 10,left: 10,right: 10),
         child: Column(
           children: [
             TextField(
               controller: search,
               decoration: InputDecoration(
                 filled: true,
-                contentPadding: EdgeInsets.all(16),
+                contentPadding: const EdgeInsets.all(16),
                 fillColor: Colors.lightBlue.shade100,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     width: 0,
                     style: BorderStyle.none,
                   ),
 
                 ),
-                label: Text('Search for hotels and countries'),
-                suffixIcon: Icon(Icons.search),
+                label: const Text('Search for hotels and countries'),
+                suffixIcon: const Icon(Icons.search),
               ),
             ),
-            ElevatedButton(onPressed: ()=>{submit(search.text)}, child: Text("press me !"))
+            ElevatedButton(onPressed: ()=>{submit(search.text)}, child: const Text("press me !"))
           ],
         )
     );
