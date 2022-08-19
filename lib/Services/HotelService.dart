@@ -17,7 +17,6 @@ import 'package:flutter/material.dart';
 
 class HotelService{
 
-  //GET hotels request and maps the response into a HotelCardModel
   getHotels(navigate, id) async{
     var url = Uri.parse('$SERVER_URLL/hotel/hotels');
     try{
@@ -35,16 +34,13 @@ class HotelService{
               bannerImage: hotel['roomPhoto']
           )
       ));
-      //set the hotels
       hotelStores.setDetails(hotel);
     }on Exception{
       Get.snackbar("Error", "Can't process the request now, please try again later");
     }
   }
-  // POST
   createHotel(name,pricePerNight,extras,country,city) async{
     var url = Uri.parse('$SERVER_URLL/hotel/hotels');
-    //body
     var data = {
       "name":name,
       "pricePerNight":pricePerNight,
@@ -53,7 +49,6 @@ class HotelService{
       "city":city
     };
     var dataEncoded = json.encode(data);
-    //request
     try{
       await http.post(url, body: dataEncoded);
     }on Exception{
@@ -61,7 +56,7 @@ class HotelService{
     }
 
   }
-  // POST
+
   saveHotel(name,pricePerNight,extras,country,city,roomphoto)async{
     var url = Uri.parse('$SERVER_URLL/savedhotels/savehotel');
     var data = {
@@ -83,7 +78,7 @@ class HotelService{
     await getSavedHotels(userStores.id);
 
   }
-  //GET
+
   getSavedHotels(userId) async{
     var url = Uri.parse('$SERVER_URLL/savedHotels/$userId');
     var response = await http.get(url);
@@ -103,7 +98,7 @@ class HotelService{
     savedHotelsStores.setSavedHotels(hotel);
 
   }
-  // DELETE (by id)
+
   deleteHotelById(id)async{
     var url = Uri.parse('$SERVER_URLL/savedhotels/$id');
     var response = await http.delete(url);
@@ -111,7 +106,6 @@ class HotelService{
 
   }
 
-  //DELETE
   deleteAllHotels()async{
     var url = Uri.parse('$SERVER_URLL/savedhotels');
     var response = await http.delete(url);
