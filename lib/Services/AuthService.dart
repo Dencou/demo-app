@@ -19,20 +19,16 @@ class AuthService{
   Future login({required String password, required String email})async{
     var url = Uri.parse('$SERVER_URLL/auth/signin');
 
-    //body for the request
     var data ={
       'email':email,
       'password':password
     };
     try{
-      //do the request
       var response = await http.post(url, body: data);
       var responsejson = json.decode(response.body);
 
-      //get the hotels request for HomePage()
       await hotelService.getHotels(false,false);
 
-      //store the JWT token
       var token = responsejson['access_token'];
       await getUserData(token);
 
@@ -47,7 +43,6 @@ class AuthService{
   Future singUp({name, email, password, country, cpassword,image}) async{
     var url = Uri.parse('$SERVER_URLL/auth/signup');
 
-    //verify if the passwords matches
     if(password != cpassword){
       SnackBarW.snackBarCredentialsInvalid(message: "Passwords mismatch");
     }else{
@@ -61,10 +56,8 @@ class AuthService{
           "image":image,
         };
 
-        //post request to create user
         var response = await http.post(url, body: data);
 
-        //decode the response
         var responsejson = json.decode(response.body);
 
         saveUserToken(responsejson['access_token']);
@@ -86,17 +79,14 @@ class AuthService{
 
   }
 
-  //returns the about me user data
   Future getUserData(access_token)async{
 
-    //request
     var url = Uri.parse('$SERVER_URLL/users/me');
     var response = await http.get(url,headers: {HttpHeaders.authorizationHeader:'Bearer $access_token'});
     var responsejson = json.decode(response.body);
 
 
     await hotelService.getSavedHotels(responsejson['id']);
-    //store user data
     userStores.setUserData(responsejson['name'],responsejson['email'], responsejson['id']);
 
 
